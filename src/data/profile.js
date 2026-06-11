@@ -7,7 +7,7 @@ export const profile = {
   github: "https://github.com/Nakauli/aljun-cursiga-portfolio",
   facebook: "#",
   linkedin: "#",
-  portfolio: "#",
+  portfolio: "https://aljun-cursiga-portfolio.vercel.app",
   cvPath: "/Aljun_Cursiga_CV.pdf",
   portrait: "/aljun-cursiga-profile.png",
   tagline:

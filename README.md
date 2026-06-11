@@ -67,8 +67,8 @@ Keep the filenames unchanged so the existing download buttons continue to work.
 
 ## Repository and Live Demo
 
-- GitHub repository: Added after GitHub deployment
-- Live demo: Added after Vercel deployment
+- GitHub repository: [github.com/Nakauli/aljun-cursiga-portfolio](https://github.com/Nakauli/aljun-cursiga-portfolio)
+- Live demo: [aljun-cursiga-portfolio.vercel.app](https://aljun-cursiga-portfolio.vercel.app)
 
 ## Deployment
 
@@ -83,4 +83,4 @@ Vercel detects the Vite project and uses:
 - Build command: `npm run build`
 - Output directory: `dist`
 
-See `DEPLOYMENT.md` after the first production deployment for the real repository URL, live URL, and update workflow.
+See `DEPLOYMENT.md` for the repository URL, live URL, commands used, and update workflow.
