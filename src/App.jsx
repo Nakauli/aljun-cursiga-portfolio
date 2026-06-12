@@ -47,10 +47,13 @@ export default function App() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-slate-50 text-slate-950 antialiased transition-colors duration-500 dark:bg-[#06131f] dark:text-slate-50">
       <AnimatePresence>{loading && <Loader />}</AnimatePresence>
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <ScrollProgress />
       <AnimatedBackground />
       <Navbar themeConfig={themeConfig} />
-      <main>
+      <main id="main-content">
         <Hero />
         <About />
         <Skills />

@@ -21,6 +21,10 @@ body {
   margin: 0;
 }
 
+.skip-link {
+  @apply fixed left-4 top-3 z-[70] -translate-y-20 rounded-[8px] bg-slate-950 px-4 py-3 text-sm font-bold text-white shadow-panel transition focus:translate-y-0 dark:bg-cyan-300 dark:text-slate-950;
+}
+
 ::selection {
   background: rgba(34, 211, 238, 0.32);
 }

@@ -17,6 +17,7 @@ const links = [
 export default function Navbar({ themeConfig }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -24,6 +25,32 @@ export default function Navbar({ themeConfig }) {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    const sections = links
+      .map((link) => document.querySelector(link.href))
+      .filter(Boolean);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntry = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visibleEntry) setActiveSection(visibleEntry.target.id);
+      },
+      { rootMargin: "-25% 0px -60% 0px", threshold: [0.05, 0.2, 0.5] },
+    );
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!open) return undefined;
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
 
   return (
     <header className="fixed inset-x-0 top-4 z-40 px-4">
@@ -47,7 +74,12 @@ export default function Navbar({ themeConfig }) {
             <a
               key={link.href}
               href={link.href}
-              className="rounded-[8px] px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-900/5 hover:text-cyan-700 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-cyan-200"
+              aria-current={activeSection === link.href.slice(1) ? "location" : undefined}
+              className={`rounded-[8px] px-3 py-2 text-sm font-medium transition ${
+                activeSection === link.href.slice(1)
+                  ? "bg-cyan-500/10 text-cyan-700 dark:text-cyan-200"
+                  : "text-slate-700 hover:bg-slate-900/5 hover:text-cyan-700 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-cyan-200"
+              }`}
             >
               {link.label}
             </a>
@@ -90,7 +122,12 @@ export default function Navbar({ themeConfig }) {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-[8px] px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 hover:text-cyan-700 dark:text-slate-200 dark:hover:bg-white/10 dark:hover:text-cyan-200"
+                  aria-current={activeSection === link.href.slice(1) ? "location" : undefined}
+                  className={`rounded-[8px] px-4 py-3 text-sm font-semibold transition ${
+                    activeSection === link.href.slice(1)
+                      ? "bg-cyan-500/10 text-cyan-700 dark:text-cyan-200"
+                      : "text-slate-700 hover:bg-slate-100 hover:text-cyan-700 dark:text-slate-200 dark:hover:bg-white/10 dark:hover:text-cyan-200"
+                  }`}
                 >
                   {link.label}
                 </a>
