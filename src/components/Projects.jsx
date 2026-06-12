@@ -1,16 +1,30 @@
-import { useMemo, useState } from "react";
-import { motion } from "framer-motion";
-import { Code2, ExternalLink, Layers3 } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { CheckCircle2, Code2, ExternalLink, Layers3, X } from "lucide-react";
 import SectionHeader from "./SectionHeader.jsx";
 import { projectFilters, projects } from "../data/projects.js";
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("All");
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const visibleProjects = useMemo(() => {
     if (activeFilter === "All") return projects;
     return projects.filter((project) => project.filters.includes(activeFilter));
   }, [activeFilter]);
+
+  useEffect(() => {
+    if (!selectedProject) return undefined;
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") setSelectedProject(null);
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [selectedProject]);
 
   return (
     <section id="projects" className="relative z-10 px-4 py-24">
@@ -73,21 +87,91 @@ export default function Projects() {
                   ))}
                 </div>
                 <div className="mt-6 grid grid-cols-3 gap-2">
-                  <button type="button" className="icon-command" aria-label={`View details for ${project.title}`}>
+                  <button
+                    type="button"
+                    className="icon-command"
+                    aria-label={`View details for ${project.title}`}
+                    onClick={() => setSelectedProject(project)}
+                  >
                     <Layers3 size={17} />
                   </button>
-                  <button type="button" className="icon-command" aria-label={`Open live demo for ${project.title}`}>
+                  <a
+                    className={`icon-command ${!project.liveUrl ? "pointer-events-none opacity-40" : ""}`}
+                    aria-label={project.liveUrl ? `Open live demo for ${project.title}` : `Live demo unavailable for ${project.title}`}
+                    href={project.liveUrl || undefined}
+                    target={project.liveUrl ? "_blank" : undefined}
+                    rel={project.liveUrl ? "noreferrer" : undefined}
+                    aria-disabled={!project.liveUrl}
+                  >
                     <ExternalLink size={17} />
-                  </button>
-                  <button type="button" className="icon-command" aria-label={`Open source code for ${project.title}`}>
+                  </a>
+                  <a
+                    className={`icon-command ${!project.sourceUrl ? "pointer-events-none opacity-40" : ""}`}
+                    aria-label={project.sourceUrl ? `Open source code for ${project.title}` : `Source code unavailable for ${project.title}`}
+                    href={project.sourceUrl || undefined}
+                    target={project.sourceUrl ? "_blank" : undefined}
+                    rel={project.sourceUrl ? "noreferrer" : undefined}
+                    aria-disabled={!project.sourceUrl}
+                  >
                     <Code2 size={17} />
-                  </button>
+                  </a>
                 </div>
               </div>
             </motion.article>
           ))}
         </motion.div>
       </div>
+
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            className="fixed inset-0 z-50 grid place-items-center bg-slate-950/70 p-4 backdrop-blur-md"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedProject(null)}
+          >
+            <motion.article
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="project-dialog-title"
+              className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-[8px] border border-white/15 bg-white p-6 shadow-panel dark:bg-[#071827] sm:p-8"
+              initial={{ opacity: 0, y: 24, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 16, scale: 0.98 }}
+              onClick={(event) => event.stopPropagation()}
+            >
+              <div className="flex items-start justify-between gap-5">
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-700 dark:text-cyan-300">
+                    {selectedProject.type}
+                  </p>
+                  <h3 id="project-dialog-title" className="mt-2 font-display text-3xl font-bold text-slate-950 dark:text-white">
+                    {selectedProject.title}
+                  </h3>
+                </div>
+                <button type="button" className="icon-command flex-none" onClick={() => setSelectedProject(null)} aria-label="Close project details">
+                  <X size={18} />
+                </button>
+              </div>
+              <img src={selectedProject.image} alt="" className="mt-6 aspect-[16/8] w-full rounded-[8px] object-cover" />
+              <p className="mt-6 text-base leading-8 text-slate-600 dark:text-slate-300">{selectedProject.description}</p>
+              <div className="mt-6 rounded-[8px] border border-cyan-400/25 bg-cyan-400/10 p-5">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-700 dark:text-cyan-300">Project goal</p>
+                <p className="mt-2 font-medium leading-7 text-slate-800 dark:text-slate-100">{selectedProject.goal}</p>
+              </div>
+              <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                {selectedProject.highlights.map((highlight) => (
+                  <div key={highlight} className="flex gap-2 rounded-[8px] border border-slate-200 p-4 text-sm leading-6 text-slate-700 dark:border-white/10 dark:text-slate-200">
+                    <CheckCircle2 className="mt-0.5 flex-none text-emerald-500" size={18} />
+                    <span>{highlight}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.article>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

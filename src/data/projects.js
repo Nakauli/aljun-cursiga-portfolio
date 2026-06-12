@@ -9,6 +9,8 @@ export const projects = [
     tech: ["Database Design", "ERD", "SQL", "System Analysis"],
     filters: ["System", "Design"],
     image: "/project-placeholders/um-healthlink.png",
+    goal: "Design a clear digital workflow for campus clinic services and student health records.",
+    highlights: ["Mapped clinic service workflows", "Designed a normalized health records database", "Planned referrals and appointment management"],
   },
   {
     title: "SpamGuard",
@@ -18,6 +20,8 @@ export const projects = [
     tech: ["Python", "Flask", "Scikit-learn", "HTML", "CSS"],
     filters: ["System", "Full Stack"],
     image: "/project-placeholders/spamguard.png",
+    goal: "Explore machine learning classification through an approachable Flask web interface.",
+    highlights: ["Built a message classification workflow", "Connected a Python model to Flask", "Designed separate SMS and forum filtering experiences"],
   },
   {
     title: "Local Printing Press Website",
@@ -27,6 +31,8 @@ export const projects = [
     tech: ["HTML", "CSS", "JavaScript"],
     filters: ["Web", "Design"],
     image: "/project-placeholders/printing-press.png",
+    goal: "Give a local printing business a clear, professional way to present its services online.",
+    highlights: ["Organized services for fast scanning", "Created a visual identity-led layout", "Designed responsive contact and inquiry paths"],
   },
   {
     title: "Church Website",
@@ -36,6 +42,8 @@ export const projects = [
     tech: ["HTML", "CSS", "JavaScript"],
     filters: ["Web"],
     image: "/project-placeholders/church-website.png",
+    goal: "Create a welcoming digital home for ministries, announcements, and community media.",
+    highlights: ["Structured ministry information", "Prioritized announcements and media", "Built an accessible responsive layout"],
   },
   {
     title: "Cops International Polic Website",
@@ -45,6 +53,8 @@ export const projects = [
     tech: ["HTML", "CSS", "JavaScript"],
     filters: ["Web", "Design"],
     image: "/project-placeholders/cops-international.png",
+    goal: "Develop a confident informational concept for an international police-related platform.",
+    highlights: ["Established a trustworthy visual direction", "Organized public information sections", "Created a responsive blue-themed interface"],
   },
   {
     title: "Portfolio Website",
@@ -54,5 +64,9 @@ export const projects = [
     tech: ["React", "Tailwind CSS", "Framer Motion"],
     filters: ["Web", "Full Stack", "Design"],
     image: "/project-placeholders/portfolio.png",
+    goal: "Present my developer and layout-design experience through a memorable, fast portfolio.",
+    highlights: ["Built reusable React sections", "Added responsive themes and motion", "Deployed a production build on Vercel"],
+    liveUrl: "https://aljun-cursiga-portfolio.vercel.app",
+    sourceUrl: "https://github.com/Nakauli/aljun-cursiga-portfolio",
   },
 ];
