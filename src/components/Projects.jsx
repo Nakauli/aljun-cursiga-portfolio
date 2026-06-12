@@ -67,6 +67,8 @@ export default function Projects() {
                 <img
                   src={project.image}
                   alt={`${project.title} project preview`}
+                  loading="lazy"
+                  decoding="async"
                   className="aspect-[16/10] w-full object-cover transition duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/75 to-transparent p-4">

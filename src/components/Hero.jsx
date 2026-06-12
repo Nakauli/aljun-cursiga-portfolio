@@ -75,6 +75,8 @@ export default function Hero() {
             <img
               src={profile.portrait}
               alt="Professional portrait of Aljun C. Cursiga"
+              fetchPriority="high"
+              decoding="async"
               className="aspect-[4/5] w-full rounded-[6px] object-cover object-center"
             />
             <div className="absolute inset-x-3 bottom-3 rounded-b-[6px] border-t border-white/30 bg-slate-950/75 p-4 text-white backdrop-blur-md">

@@ -1,0 +1,16 @@
+{
+  "name": "Aljun C. Cursiga Portfolio",
+  "short_name": "Aljun Portfolio",
+  "description": "Portfolio of Aljun C. Cursiga, Full Stack Developer and Layout Artist.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#06131f",
+  "theme_color": "#06131f",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
