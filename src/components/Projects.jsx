@@ -1,8 +1,14 @@
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { CheckCircle2, Code2, ExternalLink, Layers3, X } from "lucide-react";
+import { CheckCircle2, CircleDot, Code2, ExternalLink, Layers3, X } from "lucide-react";
 import SectionHeader from "./SectionHeader.jsx";
 import { projectFilters, projects } from "../data/projects.js";
+
+const statusClasses = {
+  Concept: "bg-amber-400/90 text-amber-950",
+  Prototype: "bg-indigo-400/90 text-indigo-950",
+  Live: "bg-emerald-400/90 text-emerald-950",
+};
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -74,6 +80,12 @@ export default function Projects() {
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/75 to-transparent p-4">
                   <span className="rounded-full bg-white/90 px-3 py-1 text-xs font-bold text-slate-900">{project.type}</span>
                 </div>
+                <span
+                  className={`absolute right-3 top-3 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold ${statusClasses[project.status]}`}
+                >
+                  <CircleDot size={12} />
+                  {project.status}
+                </span>
               </div>
               <div className="p-5">
                 <h3 className="font-display text-xl font-semibold text-slate-950 dark:text-white">{project.title}</h3>
@@ -145,9 +157,17 @@ export default function Projects() {
             >
               <div className="flex items-start justify-between gap-5">
                 <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-700 dark:text-cyan-300">
-                    {selectedProject.type}
-                  </p>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-700 dark:text-cyan-300">
+                      {selectedProject.type}
+                    </p>
+                    <span
+                      className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold ${statusClasses[selectedProject.status]}`}
+                    >
+                      <CircleDot size={12} />
+                      {selectedProject.status}
+                    </span>
+                  </div>
                   <h3 id="project-dialog-title" className="mt-2 font-display text-3xl font-bold text-slate-950 dark:text-white">
                     {selectedProject.title}
                   </h3>
