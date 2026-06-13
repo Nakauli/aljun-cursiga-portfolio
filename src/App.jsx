@@ -10,6 +10,7 @@ import Experience from "./components/Experience.jsx";
 import Learning from "./components/Learning.jsx";
 import Process from "./components/Process.jsx";
 import Services from "./components/Services.jsx";
+import Faq from "./components/Faq.jsx";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 import ScrollProgress from "./components/ScrollProgress.jsx";
@@ -64,6 +65,7 @@ export default function App() {
         <Learning />
         <Process />
         <Services />
+        <Faq />
         <Contact />
       </main>
       <Footer />
