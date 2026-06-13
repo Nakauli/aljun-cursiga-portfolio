@@ -1,5 +1,6 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown, Download, Mail, Sparkles } from "lucide-react";
+import { ArrowDown, Check, Download, Mail, Share2, Sparkles } from "lucide-react";
 import { profile } from "../data/profile.js";
 
 const statItems = [
@@ -9,6 +10,42 @@ const statItems = [
 ];
 
 export default function Hero() {
+  const [shareStatus, setShareStatus] = useState("idle");
+
+  useEffect(() => {
+    if (shareStatus === "idle") return undefined;
+    const timer = window.setTimeout(() => setShareStatus("idle"), 2500);
+    return () => window.clearTimeout(timer);
+  }, [shareStatus]);
+
+  const handleShare = async () => {
+    const shareData = {
+      title: `${profile.name} | ${profile.role}`,
+      text: `Explore ${profile.name}'s full-stack developer portfolio.`,
+      url: profile.portfolio,
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+        setShareStatus("shared");
+        return;
+      }
+
+      await navigator.clipboard.writeText(profile.portfolio);
+      setShareStatus("copied");
+    } catch (error) {
+      if (error?.name !== "AbortError") setShareStatus("error");
+    }
+  };
+
+  const shareLabel = {
+    idle: "Share",
+    shared: "Shared",
+    copied: "Link copied",
+    error: "Try again",
+  }[shareStatus];
+
   return (
     <section id="home" className="relative z-10 min-h-screen px-4 pb-20 pt-32 sm:pt-36">
       <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
@@ -47,7 +84,16 @@ export default function Hero() {
               Contact Me
               <Mail size={18} />
             </a>
+            <button type="button" className="btn-quiet" onClick={handleShare}>
+              {shareLabel}
+              {shareStatus === "shared" || shareStatus === "copied" ? <Check size={18} /> : <Share2 size={18} />}
+            </button>
           </div>
+          <span className="sr-only" aria-live="polite">
+            {shareStatus === "shared" && "Portfolio shared successfully."}
+            {shareStatus === "copied" && "Portfolio link copied to clipboard."}
+            {shareStatus === "error" && "Portfolio could not be shared. Please try again."}
+          </span>
 
           <div className="mt-10 grid max-w-2xl grid-cols-3 gap-3">
             {statItems.map((item) => (
