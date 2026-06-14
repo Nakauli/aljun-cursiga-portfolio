@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, MotionConfig, motion, useReducedMotion } from "framer-motion";
 import AnimatedBackground from "./components/AnimatedBackground.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
@@ -28,6 +28,7 @@ const getInitialTheme = () => {
 export default function App() {
   const [theme, setTheme] = useState(getInitialTheme);
   const [loading, setLoading] = useState(true);
+  const prefersReducedMotion = useReducedMotion();
 
   const themeConfig = useMemo(
     () => ({
@@ -44,38 +45,44 @@ export default function App() {
   }, [theme]);
 
   useEffect(() => {
+    if (prefersReducedMotion) {
+      setLoading(false);
+      return undefined;
+    }
     const timer = window.setTimeout(() => setLoading(false), 900);
     return () => window.clearTimeout(timer);
-  }, []);
+  }, [prefersReducedMotion]);
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-slate-50 text-slate-950 antialiased transition-colors duration-500 dark:bg-[#06131f] dark:text-slate-50">
-      <AnimatePresence>{loading && <Loader />}</AnimatePresence>
-      <a href="#main-content" className="skip-link">
-        Skip to main content
-      </a>
-      <ScrollProgress />
-      <AnimatedBackground />
-      <Navbar themeConfig={themeConfig} />
-      <main id="main-content">
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Learning />
-        <Process />
-        <Updates />
-        <Services />
-        <Faq />
-        <Contact />
-      </main>
-      <Footer />
-      <BackToTop />
-      <motion.div
-        className="pointer-events-none fixed inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-t from-slate-50 to-transparent dark:from-[#06131f]"
-        aria-hidden="true"
-      />
-    </div>
+    <MotionConfig reducedMotion="user">
+      <div className="min-h-screen overflow-x-hidden bg-slate-50 text-slate-950 antialiased transition-colors duration-500 dark:bg-[#06131f] dark:text-slate-50">
+        <AnimatePresence>{loading && <Loader />}</AnimatePresence>
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
+        <ScrollProgress />
+        <AnimatedBackground />
+        <Navbar themeConfig={themeConfig} />
+        <main id="main-content">
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Experience />
+          <Learning />
+          <Process />
+          <Updates />
+          <Services />
+          <Faq />
+          <Contact />
+        </main>
+        <Footer />
+        <BackToTop />
+        <motion.div
+          className="pointer-events-none fixed inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-t from-slate-50 to-transparent dark:from-[#06131f]"
+          aria-hidden="true"
+        />
+      </div>
+    </MotionConfig>
   );
 }
