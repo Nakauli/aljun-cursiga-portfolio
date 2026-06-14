@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { CheckCircle2, CircleDot, Code2, ExternalLink, Layers3, Search, X } from "lucide-react";
+import { ArrowUpDown, CheckCircle2, CircleDot, Code2, ExternalLink, Layers3, Search, X } from "lucide-react";
 import SectionHeader from "./SectionHeader.jsx";
 import { projectFilters, projects } from "../data/projects.js";
 
@@ -10,21 +10,32 @@ const statusClasses = {
   Live: "bg-emerald-400/90 text-emerald-950",
 };
 
+const statusPriority = { Live: 0, Prototype: 1, Concept: 2 };
+
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("All");
   const [query, setQuery] = useState("");
+  const [sortMode, setSortMode] = useState("featured");
   const [selectedProject, setSelectedProject] = useState(null);
 
   const visibleProjects = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
 
-    return projects.filter((project) => {
+    const matchingProjects = projects.filter((project) => {
       const matchesFilter = activeFilter === "All" || project.filters.includes(activeFilter);
       const searchableText = [project.title, project.type, project.description, ...project.tech].join(" ").toLowerCase();
       const matchesQuery = !normalizedQuery || searchableText.includes(normalizedQuery);
       return matchesFilter && matchesQuery;
     });
-  }, [activeFilter, query]);
+
+    if (sortMode === "name") {
+      return [...matchingProjects].sort((a, b) => a.title.localeCompare(b.title));
+    }
+    if (sortMode === "status") {
+      return [...matchingProjects].sort((a, b) => statusPriority[a.status] - statusPriority[b.status]);
+    }
+    return matchingProjects;
+  }, [activeFilter, query, sortMode]);
 
   useEffect(() => {
     if (!selectedProject) return undefined;
@@ -74,21 +85,36 @@ export default function Projects() {
               {visibleProjects.length} {visibleProjects.length === 1 ? "project" : "projects"} shown
             </p>
           </div>
-          <div className="flex flex-wrap gap-2" aria-label="Filter projects by category">
-            {projectFilters.map((filter) => (
-              <button
-                type="button"
-                key={filter}
-                onClick={() => setActiveFilter(filter)}
-                className={`rounded-[8px] border px-4 py-2 text-sm font-semibold transition ${
-                  activeFilter === filter
-                    ? "border-cyan-500 bg-cyan-500 text-white shadow-glow"
-                    : "border-slate-200 bg-white/70 text-slate-700 hover:border-cyan-400 hover:text-cyan-700 dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-200 dark:hover:border-cyan-300"
-                }`}
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <div className="flex flex-wrap gap-2" aria-label="Filter projects by category">
+              {projectFilters.map((filter) => (
+                <button
+                  type="button"
+                  key={filter}
+                  onClick={() => setActiveFilter(filter)}
+                  className={`rounded-[8px] border px-4 py-2 text-sm font-semibold transition ${
+                    activeFilter === filter
+                      ? "border-cyan-500 bg-cyan-500 text-white shadow-glow"
+                      : "border-slate-200 bg-white/70 text-slate-700 hover:border-cyan-400 hover:text-cyan-700 dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-200 dark:hover:border-cyan-300"
+                  }`}
+                >
+                  {filter}
+                </button>
+              ))}
+            </div>
+            <label className="flex items-center gap-2 text-sm font-semibold text-slate-600 dark:text-slate-300">
+              <ArrowUpDown size={16} aria-hidden="true" />
+              <span>Sort</span>
+              <select
+                value={sortMode}
+                onChange={(event) => setSortMode(event.target.value)}
+                className="rounded-[8px] border border-slate-200 bg-white/80 px-3 py-2 text-sm font-semibold text-slate-800 outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 dark:border-white/10 dark:bg-[#0b1d2b] dark:text-white"
               >
-                {filter}
-              </button>
-            ))}
+                <option value="featured">Featured order</option>
+                <option value="name">Name A-Z</option>
+                <option value="status">Most complete</option>
+              </select>
+            </label>
           </div>
         </div>
 
@@ -178,6 +204,7 @@ export default function Projects() {
               onClick={() => {
                 setQuery("");
                 setActiveFilter("All");
+                setSortMode("featured");
               }}
               className="mt-3 text-sm font-semibold text-cyan-700 hover:underline dark:text-cyan-300"
             >
