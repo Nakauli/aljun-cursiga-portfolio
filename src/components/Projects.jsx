@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { CheckCircle2, CircleDot, Code2, ExternalLink, Layers3, X } from "lucide-react";
+import { CheckCircle2, CircleDot, Code2, ExternalLink, Layers3, Search, X } from "lucide-react";
 import SectionHeader from "./SectionHeader.jsx";
 import { projectFilters, projects } from "../data/projects.js";
 
@@ -12,12 +12,19 @@ const statusClasses = {
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("All");
+  const [query, setQuery] = useState("");
   const [selectedProject, setSelectedProject] = useState(null);
 
   const visibleProjects = useMemo(() => {
-    if (activeFilter === "All") return projects;
-    return projects.filter((project) => project.filters.includes(activeFilter));
-  }, [activeFilter]);
+    const normalizedQuery = query.trim().toLowerCase();
+
+    return projects.filter((project) => {
+      const matchesFilter = activeFilter === "All" || project.filters.includes(activeFilter);
+      const searchableText = [project.title, project.type, project.description, ...project.tech].join(" ").toLowerCase();
+      const matchesQuery = !normalizedQuery || searchableText.includes(normalizedQuery);
+      return matchesFilter && matchesQuery;
+    });
+  }, [activeFilter, query]);
 
   useEffect(() => {
     if (!selectedProject) return undefined;
@@ -40,21 +47,49 @@ export default function Projects() {
           links.
         </SectionHeader>
 
-        <div className="mb-8 flex flex-wrap justify-center gap-2">
-          {projectFilters.map((filter) => (
-            <button
-              type="button"
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
-              className={`rounded-[8px] border px-4 py-2 text-sm font-semibold transition ${
-                activeFilter === filter
-                  ? "border-cyan-500 bg-cyan-500 text-white shadow-glow"
-                  : "border-slate-200 bg-white/70 text-slate-700 hover:border-cyan-400 hover:text-cyan-700 dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-200 dark:hover:border-cyan-300"
-              }`}
-            >
-              {filter}
-            </button>
-          ))}
+        <div className="mb-8 grid gap-5 border-y border-slate-200/80 py-5 dark:border-white/10">
+          <div className="grid gap-3 md:grid-cols-[1fr_auto] md:items-center">
+            <label className="relative block">
+              <span className="sr-only">Search projects</span>
+              <Search className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+              <input
+                type="search"
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                placeholder="Search projects or technologies"
+                className="w-full rounded-[8px] border border-slate-200 bg-white/80 py-3 pl-11 pr-11 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 dark:border-white/10 dark:bg-white/[0.06] dark:text-white"
+              />
+              {query && (
+                <button
+                  type="button"
+                  onClick={() => setQuery("")}
+                  className="absolute right-2 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-full text-slate-500 transition hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-white/10 dark:hover:text-white"
+                  aria-label="Clear project search"
+                >
+                  <X size={16} />
+                </button>
+              )}
+            </label>
+            <p className="text-sm font-semibold text-slate-500 dark:text-slate-400" aria-live="polite">
+              {visibleProjects.length} {visibleProjects.length === 1 ? "project" : "projects"} shown
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2" aria-label="Filter projects by category">
+            {projectFilters.map((filter) => (
+              <button
+                type="button"
+                key={filter}
+                onClick={() => setActiveFilter(filter)}
+                className={`rounded-[8px] border px-4 py-2 text-sm font-semibold transition ${
+                  activeFilter === filter
+                    ? "border-cyan-500 bg-cyan-500 text-white shadow-glow"
+                    : "border-slate-200 bg-white/70 text-slate-700 hover:border-cyan-400 hover:text-cyan-700 dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-200 dark:hover:border-cyan-300"
+                }`}
+              >
+                {filter}
+              </button>
+            ))}
+          </div>
         </div>
 
         <motion.div layout className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -134,6 +169,22 @@ export default function Projects() {
             </motion.article>
           ))}
         </motion.div>
+
+        {visibleProjects.length === 0 && (
+          <div className="border-y border-slate-200/80 py-12 text-center dark:border-white/10">
+            <p className="font-display text-xl font-semibold text-slate-950 dark:text-white">No matching projects yet</p>
+            <button
+              type="button"
+              onClick={() => {
+                setQuery("");
+                setActiveFilter("All");
+              }}
+              className="mt-3 text-sm font-semibold text-cyan-700 hover:underline dark:text-cyan-300"
+            >
+              Reset project filters
+            </button>
+          </div>
+        )}
       </div>
 
       <AnimatePresence>
