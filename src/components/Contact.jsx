@@ -25,9 +25,13 @@ export default function Contact() {
     const formData = new FormData(event.currentTarget);
     const name = formData.get("name");
     const email = formData.get("email");
+    const projectType = formData.get("projectType");
+    const timeline = formData.get("timeline");
     const message = formData.get("message");
-    const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
-    const body = encodeURIComponent(`${message}\n\nFrom: ${name}\nReply to: ${email}`);
+    const subject = encodeURIComponent(`${projectType} inquiry from ${name}`);
+    const body = encodeURIComponent(
+      `${message}\n\nProject type: ${projectType}\nPreferred timeline: ${timeline || "Flexible / to be discussed"}\nFrom: ${name}\nReply to: ${email}`,
+    );
     window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
   };
 
@@ -118,6 +122,31 @@ export default function Contact() {
               <label className="form-field">
                 <span>Email</span>
                 <input name="email" type="email" autoComplete="email" required placeholder="you@example.com" />
+              </label>
+            </div>
+            <div className="mt-5 grid gap-5 sm:grid-cols-2">
+              <label className="form-field">
+                <span>Project type</span>
+                <select name="projectType" required defaultValue="">
+                  <option value="" disabled>
+                    Choose a project type
+                  </option>
+                  <option value="Website development">Website development</option>
+                  <option value="Full-stack system">Full-stack system</option>
+                  <option value="UI/UX or layout design">UI/UX or layout design</option>
+                  <option value="Academic collaboration">Academic collaboration</option>
+                  <option value="General portfolio">General inquiry</option>
+                </select>
+              </label>
+              <label className="form-field">
+                <span>Preferred timeline</span>
+                <select name="timeline" defaultValue="">
+                  <option value="">Flexible / to be discussed</option>
+                  <option value="Within 2 weeks">Within 2 weeks</option>
+                  <option value="Within 1 month">Within 1 month</option>
+                  <option value="Within 2-3 months">Within 2-3 months</option>
+                  <option value="Exploring for later">Exploring for later</option>
+                </select>
               </label>
             </div>
             <label className="form-field mt-5">
