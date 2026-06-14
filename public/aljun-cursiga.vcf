@@ -1,0 +1,10 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Cursiga;Aljun C.;;;
+FN:Aljun C. Cursiga
+TITLE:Full Stack Developer
+EMAIL;TYPE=INTERNET:aljuncursiga09351522067@gmail.com
+URL:https://aljun-cursiga-portfolio.vercel.app
+ADR;TYPE=HOME:;;;Philippines;;;
+NOTE:Computer Science student developer focused on responsive websites and practical full-stack systems.
+END:VCARD

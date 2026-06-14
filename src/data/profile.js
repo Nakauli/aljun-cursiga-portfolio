@@ -9,6 +9,7 @@ export const profile = {
   linkedin: "#",
   portfolio: "https://aljun-cursiga-portfolio.vercel.app",
   cvPath: "/Aljun_Cursiga_CV.pdf",
+  contactCardPath: "/aljun-cursiga.vcf",
   portrait: "/aljun-cursiga-profile.png",
   tagline:
     "I build modern, responsive, and creative digital experiences through code, design, and technology.",

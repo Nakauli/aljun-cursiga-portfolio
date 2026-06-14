@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Check, Copy, Download, Facebook, Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
+import { Check, ContactRound, Copy, Download, Facebook, Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
 import { motion } from "framer-motion";
 import SectionHeader from "./SectionHeader.jsx";
 import { profile } from "../data/profile.js";
@@ -100,10 +100,16 @@ export default function Contact() {
               </p>
             </div>
 
-            <a href={profile.cvPath} download className="btn-primary mt-8 w-full justify-center">
-              Download My CV
-              <Download size={18} />
-            </a>
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              <a href={profile.cvPath} download className="btn-primary w-full justify-center">
+                Download CV
+                <Download size={18} />
+              </a>
+              <a href={profile.contactCardPath} download className="btn-quiet w-full justify-center">
+                Save Contact
+                <ContactRound size={18} />
+              </a>
+            </div>
           </motion.div>
 
           <motion.form
