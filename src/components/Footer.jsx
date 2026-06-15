@@ -1,4 +1,4 @@
-import { ContactRound, Download, Github, Mail } from "lucide-react";
+import { ContactRound, Download, Github, Mail, Printer } from "lucide-react";
 import { profile } from "../data/profile.js";
 
 const sectionLinks = [
@@ -62,6 +62,14 @@ export default function Footer() {
                 </a>
               );
             })}
+            <button
+              type="button"
+              onClick={() => window.print()}
+              className="inline-flex items-center gap-2 text-left transition hover:text-cyan-700 dark:hover:text-cyan-300"
+            >
+              <Printer size={16} aria-hidden="true" />
+              Print portfolio
+            </button>
           </div>
         </div>
       </div>

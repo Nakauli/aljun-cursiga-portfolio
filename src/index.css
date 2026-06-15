@@ -43,6 +43,50 @@ body {
   }
 }
 
+@media print {
+  @page {
+    margin: 14mm;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 10pt;
+  }
+
+  header,
+  button,
+  .skip-link,
+  [aria-hidden="true"],
+  a[download] {
+    display: none !important;
+  }
+
+  main section,
+  footer {
+    border-color: #cbd5e1 !important;
+    background: #ffffff !important;
+    padding: 18px 0 !important;
+  }
+
+  article,
+  img,
+  .contact-row {
+    break-inside: avoid;
+  }
+
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a {
+    color: #0f172a !important;
+    text-decoration: none !important;
+  }
+}
+
 @layer base {
   * {
     box-sizing: border-box;
