@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowDown, Check, Download, Mail, Share2, Sparkles } from "lucide-react";
+import { ArrowDown, BriefcaseBusiness, Check, Download, Mail, Share2, Sparkles } from "lucide-react";
 import { profile } from "../data/profile.js";
 
 const statItems = [
@@ -70,6 +70,13 @@ export default function Hero() {
             </motion.div>
           </div>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-700 dark:text-slate-300">{profile.tagline}</p>
+          <div className="mt-5 flex max-w-2xl items-start gap-3 border-l-2 border-emerald-400 pl-4">
+            <BriefcaseBusiness className="mt-1 flex-none text-emerald-600 dark:text-emerald-300" size={18} aria-hidden="true" />
+            <div>
+              <p className="text-sm font-bold text-slate-900 dark:text-white">{profile.availability.status}</p>
+              <p className="mt-1 text-sm leading-6 text-slate-600 dark:text-slate-300">{profile.availability.detail}</p>
+            </div>
+          </div>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a href="#projects" className="btn-primary">

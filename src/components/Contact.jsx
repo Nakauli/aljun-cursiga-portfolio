@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Check, ContactRound, Copy, Download, Facebook, Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
+import { BriefcaseBusiness, Check, ContactRound, Copy, Download, Facebook, Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
 import { motion } from "framer-motion";
 import SectionHeader from "./SectionHeader.jsx";
 import { profile } from "../data/profile.js";
@@ -68,6 +68,13 @@ export default function Contact() {
               <div className="contact-row">
                 <MapPin size={20} />
                 <span>{profile.location}</span>
+              </div>
+              <div className="contact-row items-start">
+                <BriefcaseBusiness className="mt-0.5 flex-none" size={20} />
+                <span>
+                  <strong className="block text-slate-900 dark:text-white">{profile.availability.status}</strong>
+                  <span className="mt-1 block font-medium leading-6">{profile.availability.detail}</span>
+                </span>
               </div>
             </div>
 

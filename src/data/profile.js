@@ -11,6 +11,10 @@ export const profile = {
   cvPath: "/Aljun_Cursiga_CV.pdf",
   contactCardPath: "/aljun-cursiga.vcf",
   portrait: "/aljun-cursiga-profile.png",
+  availability: {
+    status: "Available for opportunities",
+    detail: "Open to internships, junior developer roles, and collaborative web projects.",
+  },
   tagline:
     "I build modern, responsive, and creative digital experiences through code, design, and technology.",
   roles: [
