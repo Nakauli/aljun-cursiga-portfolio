@@ -37,13 +37,51 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Aljun C. Cursiga",
-        "url": "https://aljun-cursiga-portfolio.vercel.app",
-        "image": "https://aljun-cursiga-portfolio.vercel.app/aljun-cursiga-profile.png",
-        "jobTitle": "Full Stack Developer",
-        "email": "mailto:aljuncursiga09351522067@gmail.com",
-        "sameAs": ["https://github.com/Nakauli"]
+        "@graph": [
+          {
+            "@type": "ProfilePage",
+            "@id": "https://aljun-cursiga-portfolio.vercel.app/#profile",
+            "url": "https://aljun-cursiga-portfolio.vercel.app",
+            "name": "Aljun C. Cursiga | Full Stack Developer",
+            "mainEntity": { "@id": "https://aljun-cursiga-portfolio.vercel.app/#person" },
+            "isPartOf": { "@id": "https://aljun-cursiga-portfolio.vercel.app/#website" }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://aljun-cursiga-portfolio.vercel.app/#website",
+            "url": "https://aljun-cursiga-portfolio.vercel.app",
+            "name": "Aljun C. Cursiga Portfolio",
+            "description": "Portfolio featuring full-stack web projects, design work, skills, and services.",
+            "publisher": { "@id": "https://aljun-cursiga-portfolio.vercel.app/#person" }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://aljun-cursiga-portfolio.vercel.app/#person",
+            "name": "Aljun C. Cursiga",
+            "url": "https://aljun-cursiga-portfolio.vercel.app",
+            "image": "https://aljun-cursiga-portfolio.vercel.app/aljun-cursiga-profile.png",
+            "jobTitle": "Full Stack Developer",
+            "email": "mailto:aljuncursiga09351522067@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "PH"
+            },
+            "knowsAbout": ["React", "JavaScript", "Python", "Flask", "PHP", "MySQL", "UI/UX Design", "Layout Design"],
+            "sameAs": ["https://github.com/Nakauli"]
+          },
+          {
+            "@type": "ItemList",
+            "name": "Featured Portfolio Projects",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "UM HealthLink" },
+              { "@type": "ListItem", "position": 2, "name": "SpamGuard" },
+              { "@type": "ListItem", "position": 3, "name": "Local Printing Press Website" },
+              { "@type": "ListItem", "position": 4, "name": "Church Website" },
+              { "@type": "ListItem", "position": 5, "name": "Cops International Police Website" },
+              { "@type": "ListItem", "position": 6, "name": "Portfolio Website" }
+            ]
+          }
+        ]
       }
     </script>
   </head>
