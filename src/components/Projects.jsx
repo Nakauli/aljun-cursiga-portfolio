@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpDown, CheckCircle2, CircleDot, Code2, ExternalLink, Layers3, Search, X } from "lucide-react";
 import SectionHeader from "./SectionHeader.jsx";
@@ -17,6 +17,14 @@ export default function Projects() {
   const [query, setQuery] = useState("");
   const [sortMode, setSortMode] = useState("featured");
   const [selectedProject, setSelectedProject] = useState(null);
+  const dialogRef = useRef(null);
+  const closeButtonRef = useRef(null);
+  const projectTriggerRef = useRef(null);
+
+  const closeSelectedProject = () => {
+    setSelectedProject(null);
+    window.requestAnimationFrame(() => projectTriggerRef.current?.focus());
+  };
 
   const visibleProjects = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
@@ -40,15 +48,33 @@ export default function Projects() {
   useEffect(() => {
     if (!selectedProject) return undefined;
     const onKeyDown = (event) => {
-      if (event.key === "Escape") setSelectedProject(null);
+      if (event.key === "Escape") closeSelectedProject();
     };
     document.body.style.overflow = "hidden";
+    window.requestAnimationFrame(() => closeButtonRef.current?.focus());
     window.addEventListener("keydown", onKeyDown);
     return () => {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKeyDown);
     };
   }, [selectedProject]);
+
+  const keepDialogFocusContained = (event) => {
+    if (event.key !== "Tab" || !dialogRef.current) return;
+    const focusableElements = dialogRef.current.querySelectorAll(
+      'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+    );
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+
+    if (event.shiftKey && document.activeElement === firstElement) {
+      event.preventDefault();
+      lastElement?.focus();
+    } else if (!event.shiftKey && document.activeElement === lastElement) {
+      event.preventDefault();
+      firstElement?.focus();
+    }
+  };
 
   return (
     <section id="projects" className="relative z-10 px-4 py-24">
@@ -166,7 +192,10 @@ export default function Projects() {
                     type="button"
                     className="icon-command"
                     aria-label={`View details for ${project.title}`}
-                    onClick={() => setSelectedProject(project)}
+                    onClick={(event) => {
+                      projectTriggerRef.current = event.currentTarget;
+                      setSelectedProject(project);
+                    }}
                   >
                     <Layers3 size={17} />
                   </button>
@@ -221,17 +250,20 @@ export default function Projects() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setSelectedProject(null)}
+            onClick={closeSelectedProject}
           >
             <motion.article
+              ref={dialogRef}
               role="dialog"
               aria-modal="true"
               aria-labelledby="project-dialog-title"
+              aria-describedby="project-dialog-description"
               className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-[8px] border border-white/15 bg-white p-6 shadow-panel dark:bg-[#071827] sm:p-8"
               initial={{ opacity: 0, y: 24, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 16, scale: 0.98 }}
               onClick={(event) => event.stopPropagation()}
+              onKeyDown={keepDialogFocusContained}
             >
               <div className="flex items-start justify-between gap-5">
                 <div>
@@ -250,12 +282,20 @@ export default function Projects() {
                     {selectedProject.title}
                   </h3>
                 </div>
-                <button type="button" className="icon-command flex-none" onClick={() => setSelectedProject(null)} aria-label="Close project details">
+                <button
+                  ref={closeButtonRef}
+                  type="button"
+                  className="icon-command flex-none"
+                  onClick={closeSelectedProject}
+                  aria-label="Close project details"
+                >
                   <X size={18} />
                 </button>
               </div>
               <img src={selectedProject.image} alt="" className="mt-6 aspect-[16/8] w-full rounded-[8px] object-cover" />
-              <p className="mt-6 text-base leading-8 text-slate-600 dark:text-slate-300">{selectedProject.description}</p>
+              <p id="project-dialog-description" className="mt-6 text-base leading-8 text-slate-600 dark:text-slate-300">
+                {selectedProject.description}
+              </p>
               <div className="mt-6 rounded-[8px] border border-cyan-400/25 bg-cyan-400/10 p-5">
                 <p className="text-xs font-bold uppercase tracking-[0.18em] text-cyan-700 dark:text-cyan-300">Project goal</p>
                 <p className="mt-2 font-medium leading-7 text-slate-800 dark:text-slate-100">{selectedProject.goal}</p>
