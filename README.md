@@ -10,6 +10,8 @@ A responsive personal portfolio for Aljun C. Cursiga, a Computer Science student
 - Project category filters
 - Skills and tools grouped by category
 - 3D industry stack showcase for current, practicing, and exploring tools
+- Industry stack filters with evidence-based proficiency labels
+- Programming language learning tracks with concrete proof projects
 - Downloadable PDF and DOCX CV files
 - Accessible semantic sections and contact form UI
 - SEO-friendly metadata and social preview information
@@ -47,6 +49,7 @@ The production output is generated in `dist`.
 - Edit personal information and social links in `src/data/profile.js`.
 - Edit skills and tools in `src/data/skills.js`.
 - Edit the industry stack showcase in `src/data/industryStack.js`.
+- Edit learning tracks and roadmap goals in `src/data/learning.js`.
 - Edit project cards in `src/data/projects.js`.
 - Edit experience entries in `src/data/experience.js`.
 - Edit services in `src/data/services.js`.

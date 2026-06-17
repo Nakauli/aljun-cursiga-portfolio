@@ -1,5 +1,11 @@
 export const siteUpdates = [
   {
+    date: "June 18, 2026",
+    title: "Expanded the programming language roadmap",
+    summary: "Added seven industry-relevant languages, stack filters, proof projects, and evidence-based skill labels.",
+    tags: ["Languages", "Learning Plan", "Transparency"],
+  },
+  {
     date: "June 17, 2026",
     title: "Added an industry-ready stack showcase",
     summary: "Introduced a 3D stack map with current, practicing, and exploring tools aligned with modern full-stack development.",
