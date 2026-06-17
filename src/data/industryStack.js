@@ -102,6 +102,7 @@ export const industryStackTools = [
     status: "exploring",
     color: "#e76f00",
     focus: "Enterprise backend development, object-oriented design, and Spring fundamentals.",
+    nextProject: "Build a Spring Boot task-management API with authentication.",
   },
   {
     name: "C#",
@@ -109,6 +110,7 @@ export const industryStackTools = [
     status: "exploring",
     color: "#9b4f96",
     focus: ".NET web APIs, strongly typed application design, and business software.",
+    nextProject: "Create an ASP.NET Core inventory API with validation and tests.",
   },
   {
     name: "C++",
@@ -116,6 +118,7 @@ export const industryStackTools = [
     status: "exploring",
     color: "#00599c",
     focus: "Performance-aware programming, memory fundamentals, and systems concepts.",
+    nextProject: "Develop a command-line file indexer with search and benchmarks.",
   },
   {
     name: "Go",
@@ -123,6 +126,7 @@ export const industryStackTools = [
     status: "exploring",
     color: "#00add8",
     focus: "Simple concurrent services, cloud tooling, and efficient backend APIs.",
+    nextProject: "Build a concurrent URL health monitor with a small REST API.",
   },
   {
     name: "Rust",
@@ -130,6 +134,7 @@ export const industryStackTools = [
     status: "exploring",
     color: "#ce422b",
     focus: "Memory-safe systems programming and reliable high-performance services.",
+    nextProject: "Create a fast command-line log parser with structured output.",
   },
   {
     name: "Kotlin",
@@ -137,6 +142,7 @@ export const industryStackTools = [
     status: "exploring",
     color: "#7f52ff",
     focus: "Modern JVM development and a path toward Android applications.",
+    nextProject: "Build a Kotlin expense tracker with local persistence.",
   },
   {
     name: "Bash / Shell",
@@ -144,6 +150,7 @@ export const industryStackTools = [
     status: "exploring",
     color: "#4eaa25",
     focus: "Command-line automation, deployment scripts, and developer workflows.",
+    nextProject: "Automate portfolio build checks and deployment preparation.",
   },
 ];
 

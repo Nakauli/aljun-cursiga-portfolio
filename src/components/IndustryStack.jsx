@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import * as THREE from "three";
-import { Cloud, Database, Layers3, SlidersHorizontal, Sparkles } from "lucide-react";
+import { Cloud, Database, Layers3, SlidersHorizontal, Sparkles, Target } from "lucide-react";
 import { FaGithub, FaJava, FaJsSquare, FaNodeJs, FaPython, FaReact } from "react-icons/fa";
 import {
   SiCplusplus,
@@ -494,6 +494,16 @@ export default function IndustryStack() {
                 <p className="mt-1 text-xs font-bold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
                   {tool.category}
                 </p>
+                <p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">{tool.focus}</p>
+                {tool.nextProject && (
+                  <div className="mt-4 border-t border-slate-200/80 pt-3 dark:border-white/10">
+                    <p className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.14em] text-cyan-700 dark:text-cyan-300">
+                      <Target size={14} aria-hidden="true" />
+                      First proof project
+                    </p>
+                    <p className="mt-2 text-xs leading-5 text-slate-600 dark:text-slate-300">{tool.nextProject}</p>
+                  </div>
+                )}
               </motion.article>
             );
           })}
