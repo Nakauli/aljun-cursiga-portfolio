@@ -1,4 +1,4 @@
-import { Braces, Cloud, FlaskConical, PanelsTopLeft } from "lucide-react";
+import { Blocks, Braces, Cloud, Cpu, FlaskConical, PanelsTopLeft, TerminalSquare } from "lucide-react";
 
 export const learningGoals = [
   {
@@ -28,5 +28,33 @@ export const learningGoals = [
     description: "Deepen deployment, environment configuration, monitoring, and CI/CD knowledge.",
     status: "Exploring",
     icon: Cloud,
+  },
+  {
+    title: "Go and Rust",
+    focus: "Cloud and systems foundations",
+    description: "Learn concurrency, memory safety, command-line tooling, and efficient backend service patterns.",
+    status: "Next",
+    icon: Cpu,
+  },
+  {
+    title: "Java and C#",
+    focus: "Enterprise backend ecosystems",
+    description: "Practice object-oriented design through Spring Boot and ASP.NET Core API projects.",
+    status: "Planned",
+    icon: Blocks,
+  },
+  {
+    title: "Kotlin and C++",
+    focus: "Mobile and performance concepts",
+    description: "Explore Kotlin application development while strengthening lower-level programming fundamentals with C++.",
+    status: "Planned",
+    icon: Braces,
+  },
+  {
+    title: "Bash and Shell",
+    focus: "Developer automation",
+    description: "Write repeatable scripts for project setup, build checks, deployment preparation, and file workflows.",
+    status: "Planned",
+    icon: TerminalSquare,
   },
 ];

@@ -7,6 +7,7 @@ const statusClasses = {
   "In progress": "bg-emerald-400/15 text-emerald-700 dark:text-emerald-300",
   Next: "bg-cyan-400/15 text-cyan-700 dark:text-cyan-300",
   Exploring: "bg-amber-400/15 text-amber-700 dark:text-amber-300",
+  Planned: "bg-slate-400/15 text-slate-700 dark:text-slate-300",
 };
 
 export default function Learning() {
