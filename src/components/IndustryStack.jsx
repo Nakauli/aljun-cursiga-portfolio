@@ -1,7 +1,7 @@
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import * as THREE from "three";
-import { Cloud, Database, Layers3, Sparkles } from "lucide-react";
+import { Cloud, Database, Layers3, SlidersHorizontal, Sparkles } from "lucide-react";
 import { FaGithub, FaJava, FaJsSquare, FaNodeJs, FaPython, FaReact } from "react-icons/fa";
 import {
   SiCplusplus,
@@ -25,6 +25,14 @@ const statusStyles = {
   practicing: "border-cyan-400/50 bg-cyan-400/10 text-cyan-700 dark:text-cyan-200",
   exploring: "border-amber-400/60 bg-amber-400/10 text-amber-700 dark:text-amber-200",
 };
+
+const stackFilters = [
+  { label: "All tools", value: "all" },
+  { label: "Languages", value: "languages" },
+  { label: "Using now", value: "current" },
+  { label: "Practicing", value: "practicing" },
+  { label: "Exploring next", value: "exploring" },
+];
 
 const iconMap = {
   "AI Coding Tools": SiOpenai,
@@ -336,6 +344,7 @@ function IndustryStackScene({ tools, totalTools }) {
 }
 
 export default function IndustryStack() {
+  const [activeFilter, setActiveFilter] = useState("all");
   const sceneTools = useMemo(() => industryStackTools.filter((tool) => sceneToolNames.has(tool.name)), []);
   const statusCounts = useMemo(
     () =>
@@ -347,6 +356,11 @@ export default function IndustryStack() {
   );
 
   const featuredTools = industryStackTools.slice(0, 6);
+  const visibleTools = useMemo(() => {
+    if (activeFilter === "all") return industryStackTools;
+    if (activeFilter === "languages") return industryStackTools.filter((tool) => tool.category === "Language");
+    return industryStackTools.filter((tool) => tool.status === activeFilter);
+  }, [activeFilter]);
 
   return (
     <section id="industry-stack" className="relative z-10 px-4 py-24">
@@ -424,8 +438,37 @@ export default function IndustryStack() {
           </div>
         </div>
 
-        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {industryStackTools.map((tool, index) => {
+        <div className="mt-8 flex flex-col gap-4 border-y border-slate-200/80 py-5 dark:border-white/10 md:flex-row md:items-center md:justify-between">
+          <div className="flex items-center gap-3">
+            <SlidersHorizontal className="text-cyan-700 dark:text-cyan-300" size={19} aria-hidden="true" />
+            <p className="text-sm font-bold text-slate-900 dark:text-white">
+              Explore the stack
+              <span className="ml-2 font-medium text-slate-500 dark:text-slate-400">
+                {visibleTools.length} {visibleTools.length === 1 ? "tool" : "tools"}
+              </span>
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-2" aria-label="Filter industry stack">
+            {stackFilters.map((filter) => (
+              <button
+                key={filter.value}
+                type="button"
+                onClick={() => setActiveFilter(filter.value)}
+                aria-pressed={activeFilter === filter.value}
+                className={`rounded-[8px] border px-3 py-2 text-xs font-bold transition ${
+                  activeFilter === filter.value
+                    ? "border-cyan-500 bg-cyan-500 text-white"
+                    : "border-slate-200 bg-white/70 text-slate-600 hover:border-cyan-400 hover:text-cyan-700 dark:border-white/10 dark:bg-white/[0.05] dark:text-slate-300 dark:hover:text-cyan-200"
+                }`}
+              >
+                {filter.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4" aria-live="polite">
+          {visibleTools.map((tool, index) => {
             const Icon = iconMap[tool.name] || Sparkles;
             return (
               <motion.article
