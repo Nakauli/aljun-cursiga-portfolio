@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, lazy, useEffect, useMemo, useState } from "react";
 import { AnimatePresence, MotionConfig, motion, useReducedMotion } from "framer-motion";
 import AnimatedBackground from "./components/AnimatedBackground.jsx";
 import Navbar from "./components/Navbar.jsx";
@@ -17,6 +17,8 @@ import Footer from "./components/Footer.jsx";
 import ScrollProgress from "./components/ScrollProgress.jsx";
 import BackToTop from "./components/BackToTop.jsx";
 import Loader from "./components/Loader.jsx";
+
+const IndustryStack = lazy(() => import("./components/IndustryStack.jsx"));
 
 const getInitialTheme = () => {
   if (typeof window === "undefined") return "dark";
@@ -67,6 +69,17 @@ export default function App() {
           <Hero />
           <About />
           <Skills />
+          <Suspense
+            fallback={
+              <section id="industry-stack" className="relative z-10 px-4 py-24">
+                <div className="mx-auto max-w-6xl border-y border-slate-200/80 py-12 text-center dark:border-white/10">
+                  <p className="font-display text-xl font-bold text-slate-950 dark:text-white">Loading industry stack...</p>
+                </div>
+              </section>
+            }
+          >
+            <IndustryStack />
+          </Suspense>
           <Projects />
           <Experience />
           <Learning />
@@ -79,7 +92,7 @@ export default function App() {
         <Footer />
         <BackToTop />
         <motion.div
-          className="pointer-events-none fixed inset-x-0 bottom-0 z-10 h-24 bg-gradient-to-t from-slate-50 to-transparent dark:from-[#06131f]"
+          className="pointer-events-none fixed inset-x-0 bottom-0 z-[1] h-24 bg-gradient-to-t from-slate-50 to-transparent dark:from-[#06131f]"
           aria-hidden="true"
         />
       </div>

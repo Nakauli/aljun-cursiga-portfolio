@@ -4,6 +4,7 @@ import { profile } from "../data/profile.js";
 const sectionLinks = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
+  { label: "Industry Stack", href: "#industry-stack" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
   { label: "Learning", href: "#learning" },

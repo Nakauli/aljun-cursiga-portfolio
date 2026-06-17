@@ -9,6 +9,7 @@ A responsive personal portfolio for Aljun C. Cursiga, a Computer Science student
 - Animated hero, section reveals, timeline, and project cards
 - Project category filters
 - Skills and tools grouped by category
+- 3D industry stack showcase for current, practicing, and exploring tools
 - Downloadable PDF and DOCX CV files
 - Accessible semantic sections and contact form UI
 - SEO-friendly metadata and social preview information
@@ -19,6 +20,7 @@ A responsive personal portfolio for Aljun C. Cursiga, a Computer Science student
 - Vite
 - Tailwind CSS
 - Framer Motion
+- Three.js
 - Lucide React
 - React Icons
 - Vercel
@@ -44,6 +46,7 @@ The production output is generated in `dist`.
 
 - Edit personal information and social links in `src/data/profile.js`.
 - Edit skills and tools in `src/data/skills.js`.
+- Edit the industry stack showcase in `src/data/industryStack.js`.
 - Edit project cards in `src/data/projects.js`.
 - Edit experience entries in `src/data/experience.js`.
 - Edit services in `src/data/services.js`.

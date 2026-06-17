@@ -13,6 +13,12 @@ This is a Vite React project deployed with:
 - Output folder: `dist`
 - Hosting: Vercel free hosting
 
+## Latest Production Update
+
+- Date: June 17, 2026
+- Update: Added the industry stack showcase with a lazy-loaded Three.js scene.
+- Verification: `npm install`, `npm audit`, and `npm run build`
+
 ## Commands Used
 
 ```bash

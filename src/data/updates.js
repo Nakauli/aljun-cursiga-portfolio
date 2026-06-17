@@ -1,5 +1,11 @@
 export const siteUpdates = [
   {
+    date: "June 17, 2026",
+    title: "Added an industry-ready stack showcase",
+    summary: "Introduced a 3D stack map with current, practicing, and exploring tools aligned with modern full-stack development.",
+    tags: ["Industry Stack", "Three.js", "Career Growth"],
+  },
+  {
     date: "June 14, 2026",
     title: "Improved project discovery and contact flow",
     summary: "Added project search and sorting, richer inquiry details, and a downloadable contact card.",
