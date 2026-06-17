@@ -96,6 +96,55 @@ export const industryStackTools = [
     color: "#ff9900",
     focus: "Cloud fundamentals for scalable full-stack applications.",
   },
+  {
+    name: "Java",
+    category: "Language",
+    status: "exploring",
+    color: "#e76f00",
+    focus: "Enterprise backend development, object-oriented design, and Spring fundamentals.",
+  },
+  {
+    name: "C#",
+    category: "Language",
+    status: "exploring",
+    color: "#9b4f96",
+    focus: ".NET web APIs, strongly typed application design, and business software.",
+  },
+  {
+    name: "C++",
+    category: "Language",
+    status: "exploring",
+    color: "#00599c",
+    focus: "Performance-aware programming, memory fundamentals, and systems concepts.",
+  },
+  {
+    name: "Go",
+    category: "Language",
+    status: "exploring",
+    color: "#00add8",
+    focus: "Simple concurrent services, cloud tooling, and efficient backend APIs.",
+  },
+  {
+    name: "Rust",
+    category: "Language",
+    status: "exploring",
+    color: "#ce422b",
+    focus: "Memory-safe systems programming and reliable high-performance services.",
+  },
+  {
+    name: "Kotlin",
+    category: "Language",
+    status: "exploring",
+    color: "#7f52ff",
+    focus: "Modern JVM development and a path toward Android applications.",
+  },
+  {
+    name: "Bash / Shell",
+    category: "Language",
+    status: "exploring",
+    color: "#4eaa25",
+    focus: "Command-line automation, deployment scripts, and developer workflows.",
+  },
 ];
 
 export const industryStackSources = [

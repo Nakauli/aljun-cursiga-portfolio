@@ -2,8 +2,21 @@ import { useEffect, useMemo, useRef } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import * as THREE from "three";
 import { Cloud, Database, Layers3, Sparkles } from "lucide-react";
-import { FaGithub, FaJsSquare, FaNodeJs, FaPython, FaReact } from "react-icons/fa";
-import { SiDocker, SiOpenai, SiPostgresql, SiTailwindcss, SiTypescript, SiVercel } from "react-icons/si";
+import { FaGithub, FaJava, FaJsSquare, FaNodeJs, FaPython, FaReact } from "react-icons/fa";
+import {
+  SiCplusplus,
+  SiDocker,
+  SiGnubash,
+  SiGo,
+  SiKotlin,
+  SiOpenai,
+  SiPostgresql,
+  SiRust,
+  SiSharp,
+  SiTailwindcss,
+  SiTypescript,
+  SiVercel,
+} from "react-icons/si";
 import SectionHeader from "./SectionHeader.jsx";
 import { industryStackSources, industryStackTools, statusLabels } from "../data/industryStack.js";
 
@@ -16,13 +29,20 @@ const statusStyles = {
 const iconMap = {
   "AI Coding Tools": SiOpenai,
   "AWS Cloud": Cloud,
+  "Bash / Shell": SiGnubash,
+  "C#": SiSharp,
+  "C++": SiCplusplus,
   Docker: SiDocker,
   GitHub: FaGithub,
+  Go: SiGo,
+  Java: FaJava,
   JavaScript: FaJsSquare,
+  Kotlin: SiKotlin,
   "Node.js": FaNodeJs,
   PostgreSQL: SiPostgresql,
   Python: FaPython,
   React: FaReact,
+  Rust: SiRust,
   SQL: Database,
   "Tailwind CSS": SiTailwindcss,
   TypeScript: SiTypescript,
