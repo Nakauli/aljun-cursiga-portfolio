@@ -4,6 +4,12 @@ export const statusLabels = {
   exploring: "Exploring next",
 };
 
+export const statusDescriptions = {
+  current: "Used in portfolio work or completed projects.",
+  practicing: "Actively building exercises or project features.",
+  exploring: "Scheduled for focused learning and a proof project.",
+};
+
 export const industryStackTools = [
   {
     name: "JavaScript",

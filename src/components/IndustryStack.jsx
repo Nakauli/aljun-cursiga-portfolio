@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import * as THREE from "three";
-import { Cloud, Database, Layers3, SlidersHorizontal, Sparkles, Target } from "lucide-react";
+import { Cloud, Database, Layers3, ShieldCheck, SlidersHorizontal, Sparkles, Target } from "lucide-react";
 import { FaGithub, FaJava, FaJsSquare, FaNodeJs, FaPython, FaReact } from "react-icons/fa";
 import {
   SiCplusplus,
@@ -18,7 +18,12 @@ import {
   SiVercel,
 } from "react-icons/si";
 import SectionHeader from "./SectionHeader.jsx";
-import { industryStackSources, industryStackTools, statusLabels } from "../data/industryStack.js";
+import {
+  industryStackSources,
+  industryStackTools,
+  statusDescriptions,
+  statusLabels,
+} from "../data/industryStack.js";
 
 const statusStyles = {
   current: "border-emerald-400/50 bg-emerald-400/10 text-emerald-700 dark:text-emerald-200",
@@ -374,7 +379,7 @@ export default function IndustryStack() {
 
           <div className="space-y-6">
             <div className="border-y border-slate-200/80 py-5 dark:border-white/10">
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid gap-4 sm:grid-cols-3">
                 {Object.entries(statusLabels).map(([status, label]) => (
                   <div key={status} className="min-w-0">
                     <p className="font-display text-3xl font-bold text-slate-950 dark:text-white">
@@ -383,8 +388,21 @@ export default function IndustryStack() {
                     <p className="mt-1 text-xs font-bold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
                       {label}
                     </p>
+                    <p className="mt-2 text-xs leading-5 text-slate-500 dark:text-slate-400">
+                      {statusDescriptions[status]}
+                    </p>
                   </div>
                 ))}
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3 border-l-2 border-emerald-500 pl-4">
+              <ShieldCheck className="mt-0.5 shrink-0 text-emerald-600 dark:text-emerald-300" size={20} aria-hidden="true" />
+              <div>
+                <h3 className="font-display text-base font-bold text-slate-950 dark:text-white">Evidence-based skill labels</h3>
+                <p className="mt-1 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                  A roadmap language moves to practicing after hands-on exercises, and to using now only after it appears in a working project.
+                </p>
               </div>
             </div>
 
