@@ -52,7 +52,7 @@ export const projects = [
     description:
       "A Flutter mobile application designed to connect people with nearby work opportunities through job discovery, applications, profiles, messaging, and employer workflows.",
     tech: ["Flutter", "Dart", "Firebase", "Provider", "Mobile UI"],
-    filters: ["Mobile", "System", "Full Stack"],
+    filters: ["Mobile", "System", "Security", "Full Stack"],
     status: "Prototype",
     ownership: "Original project",
     repositoryVisibility: "Public repository",
@@ -164,7 +164,7 @@ export const projects = [
     description:
       "A creative, responsive portfolio website showcasing my skills, tools, projects, services, and developer identity.",
     tech: ["React", "Tailwind CSS", "Framer Motion"],
-    filters: ["Web", "Full Stack", "Design"],
+    filters: ["Web", "Security", "Full Stack", "Design"],
     status: "Live",
     ownership: "Original project",
     repositoryVisibility: "Public repository",
@@ -172,6 +172,7 @@ export const projects = [
     image: "/project-placeholders/portfolio.png",
     goal: "Present my developer and layout-design experience through a memorable, fast portfolio.",
     highlights: ["Built reusable React sections", "Added responsive themes and motion", "Deployed a production build on Vercel"],
+    securityHighlights: ["Content Security Policy", "CodeQL scanning", "Automated dependency audit"],
     liveUrl: "https://aljun-cursiga-portfolio.vercel.app",
     sourceUrl: "https://github.com/Nakauli/aljun-cursiga-portfolio",
   },
