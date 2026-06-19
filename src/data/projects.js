@@ -1,4 +1,4 @@
-export const projectFilters = ["All", "Web", "System", "Design", "Full Stack"];
+export const projectFilters = ["All", "Web", "Mobile", "System", "AI / ML", "Architecture", "Security", "Design", "Full Stack"];
 
 export const projects = [
   {
@@ -7,7 +7,7 @@ export const projects = [
     description:
       "An original study platform combining a public Next.js exam simulator with local Python tools, SQL labs, a Flask dashboard, and a 360-question practice bank.",
     tech: ["TypeScript", "Next.js", "Python", "Supabase", "PostgreSQL"],
-    filters: ["Web", "System", "Full Stack"],
+    filters: ["Web", "System", "Architecture", "Security", "Full Stack"],
     status: "Active",
     ownership: "Original project",
     repositoryVisibility: "Public repository",
@@ -32,7 +32,7 @@ export const projects = [
     description:
       "A React learning project that compares monolithic and simulated microservices approaches through employee management and payroll computation workflows.",
     tech: ["React", "Vite", "JavaScript", "Service Architecture"],
-    filters: ["Web", "System", "Full Stack"],
+    filters: ["Web", "System", "Architecture", "Full Stack"],
     status: "Academic",
     ownership: "Original academic work",
     repositoryVisibility: "Public repository",
@@ -52,7 +52,7 @@ export const projects = [
     description:
       "A Flutter mobile application designed to connect people with nearby work opportunities through job discovery, applications, profiles, messaging, and employer workflows.",
     tech: ["Flutter", "Dart", "Firebase", "Provider", "Mobile UI"],
-    filters: ["System", "Full Stack"],
+    filters: ["Mobile", "System", "Full Stack"],
     status: "Prototype",
     ownership: "Original project",
     repositoryVisibility: "Public repository",
@@ -88,7 +88,7 @@ export const projects = [
     description:
       "A team repository for a Flask and Naive Bayes web application that classifies SMS and forum messages as spam or legitimate content.",
     tech: ["Python", "Flask", "Scikit-learn", "HTML", "CSS"],
-    filters: ["System", "Full Stack"],
+    filters: ["System", "AI / ML", "Full Stack"],
     status: "Team",
     ownership: "Academic team repository",
     repositoryVisibility: "Public fork",
@@ -108,7 +108,7 @@ export const projects = [
     description:
       "A team-built PHP operations system with separate public and internal interfaces for orders, services, inventory, sales, staff roles, production tasks, and business information.",
     tech: ["PHP", "JavaScript", "SQL", "MVC", "CSRF Protection"],
-    filters: ["Web", "System", "Full Stack"],
+    filters: ["Web", "System", "Security", "Full Stack"],
     status: "Team",
     ownership: "Team contribution",
     repositoryVisibility: "Public fork",
@@ -144,7 +144,7 @@ export const projects = [
     description:
       "A private TypeScript project for COPS International Police, Inc. combining a public landing page, leadership profile, media archive, member ID preview, and reviewer workflow concept.",
     tech: ["TypeScript", "React", "Vite", "Mock API", "Accessible Media"],
-    filters: ["Web", "System", "Design"],
+    filters: ["Web", "System", "Security", "Design"],
     status: "Active",
     ownership: "Original project",
     repositoryVisibility: "Private repository",
