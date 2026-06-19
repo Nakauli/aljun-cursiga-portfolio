@@ -7,12 +7,15 @@ import {
   CircleDot,
   Code2,
   ExternalLink,
+  FolderGit2,
+  Github,
   Globe2,
   Layers3,
   LockKeyhole,
   Search,
   ShieldCheck,
   UserCheck,
+  Users,
   X,
 } from "lucide-react";
 import SectionHeader from "./SectionHeader.jsx";
@@ -37,6 +40,32 @@ export default function Projects() {
   const dialogRef = useRef(null);
   const closeButtonRef = useRef(null);
   const projectTriggerRef = useRef(null);
+  const repositorySummary = useMemo(
+    () => [
+      { label: "Projects represented", value: projects.length, icon: FolderGit2 },
+      {
+        label: "Original work",
+        value: projects.filter((project) => project.ownership.startsWith("Original")).length,
+        icon: UserCheck,
+      },
+      {
+        label: "Public sources",
+        value: projects.filter((project) => project.sourceUrl && project.repositoryVisibility.includes("Public")).length,
+        icon: Github,
+      },
+      {
+        label: "Team projects",
+        value: projects.filter((project) => project.ownership.includes("Team") || project.ownership.includes("team")).length,
+        icon: Users,
+      },
+      {
+        label: "Security-aware",
+        value: projects.filter((project) => project.securityHighlights?.length).length,
+        icon: ShieldCheck,
+      },
+    ],
+    [],
+  );
 
   const closeSelectedProject = () => {
     setSelectedProject(null);
@@ -105,6 +134,19 @@ export default function Projects() {
           A mix of academic systems, business websites, design concepts, and portfolio work with room for future live
           links.
         </SectionHeader>
+
+        <div className="mb-8 grid grid-cols-2 gap-px overflow-hidden rounded-[8px] border border-slate-200 bg-slate-200 dark:border-white/10 dark:bg-white/10 md:grid-cols-5">
+          {repositorySummary.map((item) => {
+            const Icon = item.icon;
+            return (
+              <div key={item.label} className="bg-white/80 px-4 py-5 dark:bg-[#071827]/95">
+                <Icon className="text-cyan-700 dark:text-cyan-300" size={19} aria-hidden="true" />
+                <p className="mt-3 font-display text-2xl font-bold text-slate-950 dark:text-white">{item.value}</p>
+                <p className="mt-1 text-xs font-semibold text-slate-500 dark:text-slate-400">{item.label}</p>
+              </div>
+            );
+          })}
+        </div>
 
         <div className="mb-8 grid gap-5 border-y border-slate-200/80 py-5 dark:border-white/10">
           <div className="grid gap-3 md:grid-cols-[1fr_auto] md:items-center">
