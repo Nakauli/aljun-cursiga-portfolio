@@ -101,16 +101,20 @@ export const projects = [
     highlights: ["Structured ministry information", "Prioritized announcements and media", "Built an accessible responsive layout"],
   },
   {
-    title: "Cops International Police Website",
-    type: "Informational Website",
+    title: "COPS International Public Portal",
+    type: "Organization Website and Portal Concept",
     description:
-      "A blue-themed informational website concept for an international police-related organization or public information platform.",
-    tech: ["HTML", "CSS", "JavaScript"],
-    filters: ["Web", "Design"],
-    status: "Concept",
+      "A private TypeScript project for COPS International Police, Inc. combining a public landing page, leadership profile, media archive, member ID preview, and reviewer workflow concept.",
+    tech: ["TypeScript", "React", "Vite", "Mock API", "Accessible Media"],
+    filters: ["Web", "System", "Design"],
+    status: "Active",
     image: "/project-placeholders/cops-international.png",
-    goal: "Develop a confident informational concept for an international police-related platform.",
-    highlights: ["Established a trustworthy visual direction", "Organized public information sections", "Created a responsive blue-themed interface"],
+    goal: "Organize public information and demonstrate future membership workflows without presenting mock registration as production-ready.",
+    highlights: [
+      "Curated a categorized, lazy-loaded field media archive",
+      "Added a keyboard-accessible lightbox and reduced-motion support",
+      "Documented authentication, secure storage, RBAC, and audit-trail requirements",
+    ],
   },
   {
     title: "Portfolio Website",
