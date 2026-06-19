@@ -131,8 +131,8 @@ export default function Projects() {
     <section id="projects" className="relative z-10 px-4 py-24">
       <div className="mx-auto max-w-6xl">
         <SectionHeader eyebrow="Projects" title="Selected work and system concepts">
-          A mix of academic systems, business websites, design concepts, and portfolio work with room for future live
-          links.
+          Original builds, academic systems, private client-facing concepts, and clearly attributed team repositories
+          grounded in the work visible on GitHub.
         </SectionHeader>
 
         <div className="mb-8 grid grid-cols-2 gap-px overflow-hidden rounded-[8px] border border-slate-200 bg-slate-200 dark:border-white/10 dark:bg-white/10 md:grid-cols-5">

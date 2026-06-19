@@ -12,6 +12,10 @@ A responsive personal portfolio for Aljun C. Cursiga, a Computer Science student
 - 3D industry stack showcase for current, practicing, and exploring tools
 - Industry stack filters with evidence-based proficiency labels
 - Programming language learning tracks with concrete proof projects
+- GitHub-backed project gallery with ownership, visibility, and repository freshness
+- Project security evidence and responsible team-work attribution
+- Production security headers and a public vulnerability reporting policy
+- Dependabot, CodeQL, dependency auditing, and automated build verification
 - Downloadable PDF and DOCX CV files
 - Accessible semantic sections and contact form UI
 - SEO-friendly metadata and social preview information
@@ -43,6 +47,14 @@ npm run build
 ```
 
 The production output is generated in `dist`.
+
+Run the complete local quality gate with:
+
+```bash
+npm run check
+```
+
+This audits dependencies at high severity and creates a production build.
 
 ## Editing Content
 
@@ -90,3 +102,11 @@ Vercel detects the Vite project and uses:
 - Output directory: `dist`
 
 See `DEPLOYMENT.md` for the repository URL, live URL, commands used, and update workflow.
+
+## Security
+
+- Vulnerability reporting instructions: `SECURITY.md`
+- Standard security contact: `public/.well-known/security.txt`
+- Production response headers: `vercel.json`
+- Automated scanning: `.github/workflows/codeql.yml`
+- Dependency and build gate: `.github/workflows/quality.yml`

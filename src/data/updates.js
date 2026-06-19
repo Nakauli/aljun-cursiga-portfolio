@@ -1,5 +1,11 @@
 export const siteUpdates = [
   {
+    date: "June 19, 2026",
+    title: "Connected the portfolio to real GitHub work",
+    summary: "Added current repositories, honest ownership labels, security evidence, deployment headers, CodeQL, and automated quality checks.",
+    tags: ["GitHub Projects", "Security", "Code Quality"],
+  },
+  {
     date: "June 18, 2026",
     title: "Expanded the programming language roadmap",
     summary: "Added seven industry-relevant languages, stack filters, proof projects, and evidence-based skill labels.",
