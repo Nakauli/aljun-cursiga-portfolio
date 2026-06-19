@@ -11,6 +11,7 @@ export const projects = [
     status: "Active",
     ownership: "Original project",
     repositoryVisibility: "Public repository",
+    repositoryUpdatedAt: "2026-06-19",
     image: "/project-placeholders/database-monster.png",
     goal: "Give classmates a secure, measurable way to prepare for database certification topics without using exam dumps.",
     highlights: [
@@ -30,6 +31,7 @@ export const projects = [
     status: "Academic",
     ownership: "Original academic work",
     repositoryVisibility: "Public repository",
+    repositoryUpdatedAt: "2026-02-18",
     image: "/project-placeholders/payroll-architecture.png",
     goal: "Make architectural tradeoffs visible through two implementations of the same payroll domain.",
     highlights: [
@@ -49,6 +51,7 @@ export const projects = [
     status: "Prototype",
     ownership: "Original project",
     repositoryVisibility: "Public repository",
+    repositoryUpdatedAt: "2026-01-09",
     image: "/project-placeholders/buhaylink.png",
     goal: "Create a mobile-first path between local opportunity seekers and people posting practical work.",
     highlights: [
@@ -68,6 +71,7 @@ export const projects = [
     status: "Concept",
     ownership: "Original academic concept",
     repositoryVisibility: "Portfolio only",
+    repositoryUpdatedAt: null,
     image: "/project-placeholders/um-healthlink.png",
     goal: "Design a clear digital workflow for campus clinic services and student health records.",
     highlights: ["Mapped clinic service workflows", "Designed a normalized health records database", "Planned referrals and appointment management"],
@@ -82,6 +86,7 @@ export const projects = [
     status: "Team",
     ownership: "Academic team repository",
     repositoryVisibility: "Public fork",
+    repositoryUpdatedAt: "2026-06-17",
     image: "/project-placeholders/spamguard.png",
     goal: "Study how a trained text classifier can be exposed through a modular, approachable web interface.",
     highlights: [
@@ -101,6 +106,7 @@ export const projects = [
     status: "Team",
     ownership: "Team contribution",
     repositoryVisibility: "Public fork",
+    repositoryUpdatedAt: "2026-06-17",
     image: "/project-placeholders/printing-press.png",
     goal: "Support a real printing business with connected public ordering and internal operations workflows.",
     highlights: [
@@ -120,6 +126,7 @@ export const projects = [
     status: "Concept",
     ownership: "Original concept",
     repositoryVisibility: "Private repository",
+    repositoryUpdatedAt: "2025-12-11",
     image: "/project-placeholders/church-website.png",
     goal: "Create a welcoming digital home for ministries, announcements, and community media.",
     highlights: ["Structured ministry information", "Prioritized announcements and media", "Built an accessible responsive layout"],
@@ -134,6 +141,7 @@ export const projects = [
     status: "Active",
     ownership: "Original project",
     repositoryVisibility: "Private repository",
+    repositoryUpdatedAt: "2026-06-19",
     image: "/project-placeholders/cops-international.png",
     goal: "Organize public information and demonstrate future membership workflows without presenting mock registration as production-ready.",
     highlights: [
@@ -152,6 +160,7 @@ export const projects = [
     status: "Live",
     ownership: "Original project",
     repositoryVisibility: "Public repository",
+    repositoryUpdatedAt: "2026-06-19",
     image: "/project-placeholders/portfolio.png",
     goal: "Present my developer and layout-design experience through a memorable, fast portfolio.",
     highlights: ["Built reusable React sections", "Added responsive themes and motion", "Deployed a production build on Vercel"],

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowUpDown,
+  CalendarClock,
   CheckCircle2,
   CircleDot,
   Code2,
@@ -56,6 +57,11 @@ export default function Projects() {
     }
     if (sortMode === "status") {
       return [...matchingProjects].sort((a, b) => statusPriority[a.status] - statusPriority[b.status]);
+    }
+    if (sortMode === "recent") {
+      return [...matchingProjects].sort(
+        (a, b) => new Date(b.repositoryUpdatedAt || 0).getTime() - new Date(a.repositoryUpdatedAt || 0).getTime(),
+      );
     }
     return matchingProjects;
   }, [activeFilter, query, sortMode]);
@@ -154,6 +160,7 @@ export default function Projects() {
                 <option value="featured">Featured order</option>
                 <option value="name">Name A-Z</option>
                 <option value="status">Most complete</option>
+                <option value="recent">Recently updated</option>
               </select>
             </label>
           </div>
@@ -206,6 +213,15 @@ export default function Projects() {
                   </span>
                 </div>
                 <p className="mt-3 min-h-28 text-sm leading-7 text-slate-600 dark:text-slate-300">{project.description}</p>
+                {project.repositoryUpdatedAt && (
+                  <p className="mt-3 inline-flex items-center gap-2 text-xs font-semibold text-slate-500 dark:text-slate-400">
+                    <CalendarClock size={14} aria-hidden="true" />
+                    Repository updated{" "}
+                    {new Intl.DateTimeFormat("en", { month: "short", day: "numeric", year: "numeric" }).format(
+                      new Date(`${project.repositoryUpdatedAt}T00:00:00`),
+                    )}
+                  </p>
+                )}
                 <div className="mt-5 flex flex-wrap gap-2">
                   {project.tech.map((tech) => (
                     <span
