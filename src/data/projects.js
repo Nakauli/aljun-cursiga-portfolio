@@ -36,6 +36,23 @@ export const projects = [
     sourceUrl: "https://github.com/Nakauli/my-payroll-app",
   },
   {
+    title: "BuhayLink",
+    type: "Local Opportunity Mobile Platform",
+    description:
+      "A Flutter mobile application designed to connect people with nearby work opportunities through job discovery, applications, profiles, messaging, and employer workflows.",
+    tech: ["Flutter", "Dart", "Firebase", "Provider", "Mobile UI"],
+    filters: ["System", "Full Stack"],
+    status: "Prototype",
+    image: "/project-placeholders/buhaylink.png",
+    goal: "Create a mobile-first path between local opportunity seekers and people posting practical work.",
+    highlights: [
+      "Structured authentication, profiles, and role-aware job flows",
+      "Built job search, saved listings, applications, and messaging screens",
+      "Used repository and provider patterns to organize application state",
+    ],
+    sourceUrl: "https://github.com/Nakauli/BuhayLink",
+  },
+  {
     title: "UM HealthLink",
     type: "Health Service Application Proposal",
     description:
