@@ -5,12 +5,13 @@ import SectionHeader from "./SectionHeader.jsx";
 import { projectFilters, projects } from "../data/projects.js";
 
 const statusClasses = {
+  Active: "bg-cyan-300/90 text-cyan-950",
   Concept: "bg-amber-400/90 text-amber-950",
   Prototype: "bg-indigo-400/90 text-indigo-950",
   Live: "bg-emerald-400/90 text-emerald-950",
 };
 
-const statusPriority = { Live: 0, Prototype: 1, Concept: 2 };
+const statusPriority = { Live: 0, Active: 1, Prototype: 2, Concept: 3 };
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("All");

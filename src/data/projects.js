@@ -2,6 +2,23 @@ export const projectFilters = ["All", "Web", "System", "Design", "Full Stack"];
 
 export const projects = [
   {
+    title: "Database Monster Cert Prep",
+    type: "Database Certification Training System",
+    description:
+      "An original study platform combining a public Next.js exam simulator with local Python tools, SQL labs, a Flask dashboard, and a 360-question practice bank.",
+    tech: ["TypeScript", "Next.js", "Python", "Supabase", "PostgreSQL"],
+    filters: ["Web", "System", "Full Stack"],
+    status: "Active",
+    image: "/project-placeholders/database-monster.png",
+    goal: "Give classmates a secure, measurable way to prepare for database certification topics without using exam dumps.",
+    highlights: [
+      "Built individual progress dashboards with Supabase Auth",
+      "Protected learner data with Row Level Security policies",
+      "Added automated TypeScript and Python test coverage",
+    ],
+    sourceUrl: "https://github.com/Nakauli/database-monster-cert-prep",
+  },
+  {
     title: "UM HealthLink",
     type: "Health Service Application Proposal",
     description:
