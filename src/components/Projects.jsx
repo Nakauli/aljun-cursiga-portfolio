@@ -1,6 +1,18 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUpDown, CheckCircle2, CircleDot, Code2, ExternalLink, Layers3, Search, X } from "lucide-react";
+import {
+  ArrowUpDown,
+  CheckCircle2,
+  CircleDot,
+  Code2,
+  ExternalLink,
+  Globe2,
+  Layers3,
+  LockKeyhole,
+  Search,
+  UserCheck,
+  X,
+} from "lucide-react";
 import SectionHeader from "./SectionHeader.jsx";
 import { projectFilters, projects } from "../data/projects.js";
 
@@ -179,6 +191,20 @@ export default function Projects() {
               </div>
               <div className="p-5">
                 <h3 className="font-display text-xl font-semibold text-slate-950 dark:text-white">{project.title}</h3>
+                <div className="mt-3 flex flex-wrap gap-2 text-[11px] font-bold uppercase tracking-[0.12em] text-slate-500 dark:text-slate-400">
+                  <span className="inline-flex items-center gap-1.5">
+                    <UserCheck size={14} aria-hidden="true" />
+                    {project.ownership}
+                  </span>
+                  <span className="inline-flex items-center gap-1.5">
+                    {project.repositoryVisibility.includes("Private") || project.repositoryVisibility.includes("Portfolio") ? (
+                      <LockKeyhole size={14} aria-hidden="true" />
+                    ) : (
+                      <Globe2 size={14} aria-hidden="true" />
+                    )}
+                    {project.repositoryVisibility}
+                  </span>
+                </div>
                 <p className="mt-3 min-h-28 text-sm leading-7 text-slate-600 dark:text-slate-300">{project.description}</p>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {project.tech.map((tech) => (
@@ -284,6 +310,9 @@ export default function Projects() {
                   <h3 id="project-dialog-title" className="mt-2 font-display text-3xl font-bold text-slate-950 dark:text-white">
                     {selectedProject.title}
                   </h3>
+                  <p className="mt-3 text-sm font-semibold text-slate-500 dark:text-slate-400">
+                    {selectedProject.ownership} · {selectedProject.repositoryVisibility}
+                  </p>
                 </div>
                 <button
                   ref={closeButtonRef}
