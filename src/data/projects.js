@@ -19,6 +19,23 @@ export const projects = [
     sourceUrl: "https://github.com/Nakauli/database-monster-cert-prep",
   },
   {
+    title: "Payroll Architecture Lab",
+    type: "System Architecture Laboratory",
+    description:
+      "A React learning project that compares monolithic and simulated microservices approaches through employee management and payroll computation workflows.",
+    tech: ["React", "Vite", "JavaScript", "Service Architecture"],
+    filters: ["Web", "System", "Full Stack"],
+    status: "Academic",
+    image: "/project-placeholders/payroll-architecture.png",
+    goal: "Make architectural tradeoffs visible through two implementations of the same payroll domain.",
+    highlights: [
+      "Implemented employee CRUD and payroll calculations",
+      "Separated employee data and payroll calculation services",
+      "Documented maintainability tradeoffs between architectures",
+    ],
+    sourceUrl: "https://github.com/Nakauli/my-payroll-app",
+  },
+  {
     title: "UM HealthLink",
     type: "Health Service Application Proposal",
     description:
