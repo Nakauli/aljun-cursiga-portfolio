@@ -11,6 +11,38 @@ const socials = [
   { label: "Portfolio", href: profile.portfolio, icon: Send },
 ];
 
+const projectTypes = [
+  "Website development",
+  "Full-stack system",
+  "UI/UX or layout design",
+  "Academic collaboration",
+  "General inquiry",
+];
+
+const timelineOptions = [
+  "Flexible / to be discussed",
+  "Within 2 weeks",
+  "Within 1 month",
+  "Within 2-3 months",
+  "Exploring for later",
+];
+
+const normalizeSingleLine = (value, maxLength) =>
+  String(value || "")
+    .replace(/[\u0000-\u001f\u007f]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, maxLength);
+
+const normalizeMessage = (value) =>
+  String(value || "")
+    .replace(/\r/g, "")
+    .replace(/[\u0000-\u0009\u000b-\u001f\u007f]/g, " ")
+    .replace(/[^\S\n]+/g, " ")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim()
+    .slice(0, 1500);
+
 export default function Contact() {
   const [copied, setCopied] = useState(false);
 
@@ -23,16 +55,18 @@ export default function Contact() {
   const openEmailDraft = (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const projectType = formData.get("projectType");
-    const timeline = formData.get("timeline");
-    const message = formData.get("message");
+    const name = normalizeSingleLine(formData.get("name"), 80);
+    const email = normalizeSingleLine(formData.get("email"), 254);
+    const requestedProjectType = normalizeSingleLine(formData.get("projectType"), 80);
+    const requestedTimeline = normalizeSingleLine(formData.get("timeline"), 80);
+    const projectType = projectTypes.includes(requestedProjectType) ? requestedProjectType : "General inquiry";
+    const timeline = timelineOptions.includes(requestedTimeline) ? requestedTimeline : timelineOptions[0];
+    const message = normalizeMessage(formData.get("message"));
     const subject = encodeURIComponent(`${projectType} inquiry from ${name}`);
     const body = encodeURIComponent(
-      `${message}\n\nProject type: ${projectType}\nPreferred timeline: ${timeline || "Flexible / to be discussed"}\nFrom: ${name}\nReply to: ${email}`,
+      `${message}\n\nProject type: ${projectType}\nPreferred timeline: ${timeline}\nFrom: ${name}\nReply to: ${email}`,
     );
-    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
+    window.location.assign(`mailto:${profile.email}?subject=${subject}&body=${body}`);
   };
 
   return (
@@ -96,7 +130,7 @@ export default function Contact() {
                     );
                   }
                   return (
-                    <a key={social.label} href={social.href} target="_blank" rel="noreferrer" className={`${classes} hover:-translate-y-1 hover:border-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-200`} aria-label={social.label}>
+                    <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className={`${classes} hover:-translate-y-1 hover:border-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-200`} aria-label={social.label}>
                       <Icon size={18} />
                     </a>
                   );
@@ -130,11 +164,11 @@ export default function Contact() {
             <div className="grid gap-5 sm:grid-cols-2">
               <label className="form-field">
                 <span>Name</span>
-                <input name="name" type="text" autoComplete="name" required minLength="2" placeholder="Your name" />
+                <input name="name" type="text" autoComplete="name" required minLength="2" maxLength="80" placeholder="Your name" />
               </label>
               <label className="form-field">
                 <span>Email</span>
-                <input name="email" type="email" autoComplete="email" required placeholder="you@example.com" />
+                <input name="email" type="email" inputMode="email" autoComplete="email" required maxLength="254" placeholder="you@example.com" />
               </label>
             </div>
             <div className="mt-5 grid gap-5 sm:grid-cols-2">
@@ -144,27 +178,27 @@ export default function Contact() {
                   <option value="" disabled>
                     Choose a project type
                   </option>
-                  <option value="Website development">Website development</option>
-                  <option value="Full-stack system">Full-stack system</option>
-                  <option value="UI/UX or layout design">UI/UX or layout design</option>
-                  <option value="Academic collaboration">Academic collaboration</option>
-                  <option value="General portfolio">General inquiry</option>
+                  {projectTypes.map((projectType) => (
+                    <option key={projectType} value={projectType}>
+                      {projectType}
+                    </option>
+                  ))}
                 </select>
               </label>
               <label className="form-field">
                 <span>Preferred timeline</span>
                 <select name="timeline" defaultValue="">
-                  <option value="">Flexible / to be discussed</option>
-                  <option value="Within 2 weeks">Within 2 weeks</option>
-                  <option value="Within 1 month">Within 1 month</option>
-                  <option value="Within 2-3 months">Within 2-3 months</option>
-                  <option value="Exploring for later">Exploring for later</option>
+                  {timelineOptions.map((timeline, index) => (
+                    <option key={timeline} value={index === 0 ? "" : timeline}>
+                      {timeline}
+                    </option>
+                  ))}
                 </select>
               </label>
             </div>
             <label className="form-field mt-5">
               <span>Message</span>
-              <textarea name="message" required minLength="10" rows="6" placeholder="Tell me about the project" />
+              <textarea name="message" required minLength="10" maxLength="1500" rows="6" placeholder="Tell me about the project" />
             </label>
             <button type="submit" className="btn-secondary mt-6">
               Open Email Draft
