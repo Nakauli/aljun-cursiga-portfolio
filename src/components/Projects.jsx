@@ -280,6 +280,7 @@ export default function Projects() {
                     type="button"
                     className="icon-command"
                     aria-label={`View details for ${project.title}`}
+                    title="View project details"
                     onClick={(event) => {
                       projectTriggerRef.current = event.currentTarget;
                       setSelectedProject(project);
@@ -287,26 +288,48 @@ export default function Projects() {
                   >
                     <Layers3 size={17} />
                   </button>
-                  <a
-                    className={`icon-command ${!project.liveUrl ? "pointer-events-none opacity-40" : ""}`}
-                    aria-label={project.liveUrl ? `Open live demo for ${project.title}` : `Live demo unavailable for ${project.title}`}
-                    href={project.liveUrl || undefined}
-                    target={project.liveUrl ? "_blank" : undefined}
-                    rel={project.liveUrl ? "noreferrer" : undefined}
-                    aria-disabled={!project.liveUrl}
-                  >
-                    <ExternalLink size={17} />
-                  </a>
-                  <a
-                    className={`icon-command ${!project.sourceUrl ? "pointer-events-none opacity-40" : ""}`}
-                    aria-label={project.sourceUrl ? `Open source code for ${project.title}` : `Source code unavailable for ${project.title}`}
-                    href={project.sourceUrl || undefined}
-                    target={project.sourceUrl ? "_blank" : undefined}
-                    rel={project.sourceUrl ? "noreferrer" : undefined}
-                    aria-disabled={!project.sourceUrl}
-                  >
-                    <Code2 size={17} />
-                  </a>
+                  {project.liveUrl ? (
+                    <a
+                      className="icon-command"
+                      aria-label={`Open live demo for ${project.title}`}
+                      title="Open live demo"
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink size={17} />
+                    </a>
+                  ) : (
+                    <span
+                      className="icon-command cursor-not-allowed opacity-40"
+                      aria-label={`Live demo unavailable for ${project.title}`}
+                      title="Live demo unavailable"
+                      aria-disabled="true"
+                    >
+                      <ExternalLink size={17} />
+                    </span>
+                  )}
+                  {project.sourceUrl ? (
+                    <a
+                      className="icon-command"
+                      aria-label={`Open source code for ${project.title}`}
+                      title="Open source code"
+                      href={project.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Code2 size={17} />
+                    </a>
+                  ) : (
+                    <span
+                      className="icon-command cursor-not-allowed opacity-40"
+                      aria-label={`Source code is private or unavailable for ${project.title}`}
+                      title="Source code is private or unavailable"
+                      aria-disabled="true"
+                    >
+                      <LockKeyhole size={17} />
+                    </span>
+                  )}
                 </div>
               </div>
             </motion.article>
