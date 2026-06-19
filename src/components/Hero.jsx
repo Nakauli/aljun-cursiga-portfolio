@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, BriefcaseBusiness, Check, Download, Mail, Share2, Sparkles } from "lucide-react";
 import { profile } from "../data/profile.js";
+import { industryStackTools } from "../data/industryStack.js";
+import { projects } from "../data/projects.js";
 
 const statItems = [
-  { value: "6", label: "Featured projects" },
-  { value: "20+", label: "Tools and technologies" },
+  { value: String(projects.length), label: "Featured projects" },
+  { value: String(industryStackTools.length), label: "Tools and technologies" },
   { value: "2019", label: "Creative work since" },
 ];
 
