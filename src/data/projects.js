@@ -66,15 +66,20 @@ export const projects = [
   },
   {
     title: "SpamGuard",
-    type: "SMS and Forum Spam Filter",
+    type: "Academic Team Spam Detection Project",
     description:
-      "A Python Flask spam detection system that classifies messages as spam or not spam using machine learning concepts.",
+      "A team repository for a Flask and Naive Bayes web application that classifies SMS and forum messages as spam or legitimate content.",
     tech: ["Python", "Flask", "Scikit-learn", "HTML", "CSS"],
     filters: ["System", "Full Stack"],
-    status: "Prototype",
+    status: "Team",
     image: "/project-placeholders/spamguard.png",
-    goal: "Explore machine learning classification through an approachable Flask web interface.",
-    highlights: ["Built a message classification workflow", "Connected a Python model to Flask", "Designed separate SMS and forum filtering experiences"],
+    goal: "Study how a trained text classifier can be exposed through a modular, approachable web interface.",
+    highlights: [
+      "Uses a trained Naive Bayes classifier and CountVectorizer",
+      "Separates prediction, routes, API requests, and interface concerns",
+      "Preserves teammate authorship through explicit team-project attribution",
+    ],
+    sourceUrl: "https://github.com/Nakauli/SpamGuard-Custom-SMS-and-Forum-Spam-Filter",
   },
   {
     title: "Local Printing Press Website",

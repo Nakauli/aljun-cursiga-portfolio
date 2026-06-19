@@ -9,10 +9,11 @@ const statusClasses = {
   Academic: "bg-violet-300/90 text-violet-950",
   Concept: "bg-amber-400/90 text-amber-950",
   Prototype: "bg-indigo-400/90 text-indigo-950",
+  Team: "bg-rose-300/90 text-rose-950",
   Live: "bg-emerald-400/90 text-emerald-950",
 };
 
-const statusPriority = { Live: 0, Active: 1, Prototype: 2, Academic: 3, Concept: 4 };
+const statusPriority = { Live: 0, Active: 1, Prototype: 2, Team: 3, Academic: 4, Concept: 5 };
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("All");
