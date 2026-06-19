@@ -11,6 +11,7 @@ import {
   Layers3,
   LockKeyhole,
   Search,
+  ShieldCheck,
   UserCheck,
   X,
 } from "lucide-react";
@@ -356,6 +357,24 @@ export default function Projects() {
                   </div>
                 ))}
               </div>
+              {selectedProject.securityHighlights && (
+                <div className="mt-6 border-t border-slate-200 pt-6 dark:border-white/10">
+                  <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-emerald-700 dark:text-emerald-300">
+                    <ShieldCheck size={17} aria-hidden="true" />
+                    Security and trust
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {selectedProject.securityHighlights.map((highlight) => (
+                      <span
+                        key={highlight}
+                        className="rounded-[8px] border border-emerald-400/30 bg-emerald-400/10 px-3 py-2 text-xs font-semibold text-emerald-800 dark:text-emerald-200"
+                      >
+                        {highlight}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </motion.article>
           </motion.div>
         )}

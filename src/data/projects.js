@@ -19,6 +19,11 @@ export const projects = [
       "Protected learner data with Row Level Security policies",
       "Added automated TypeScript and Python test coverage",
     ],
+    securityHighlights: [
+      "Supabase authentication",
+      "Row Level Security policies",
+      "Unofficial practice content policy",
+    ],
     sourceUrl: "https://github.com/Nakauli/database-monster-cert-prep",
   },
   {
@@ -59,6 +64,7 @@ export const projects = [
       "Built job search, saved listings, applications, and messaging screens",
       "Used repository and provider patterns to organize application state",
     ],
+    securityHighlights: ["Authentication service layer", "Reusable input validators", "Firebase-backed data access"],
     sourceUrl: "https://github.com/Nakauli/BuhayLink",
   },
   {
@@ -114,6 +120,7 @@ export const projects = [
       "Worked within a shared MVC-style PHP architecture",
       "Used authorization and CSRF middleware in internal workflows",
     ],
+    securityHighlights: ["Authorization middleware", "CSRF protection", "Public and internal boundary"],
     sourceUrl: "https://github.com/Nakauli/hontoria-oms",
   },
   {
@@ -149,6 +156,7 @@ export const projects = [
       "Added a keyboard-accessible lightbox and reduced-motion support",
       "Documented authentication, secure storage, RBAC, and audit-trail requirements",
     ],
+    securityHighlights: ["Demo-only registration warning", "Planned role-based access", "Planned secure document storage"],
   },
   {
     title: "Portfolio Website",
