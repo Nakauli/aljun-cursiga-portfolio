@@ -463,6 +463,16 @@ export default function Projects() {
                   <p className="mt-2 text-sm leading-7 text-slate-700 dark:text-slate-200">{selectedProject.validation}</p>
                 </div>
               </div>
+              <div className="mt-6 border-t border-slate-200 pt-6 dark:border-white/10">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">Evidence available</p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {selectedProject.evidence.map((item) => (
+                    <span key={item} className="rounded-[8px] border border-slate-200 px-3 py-2 text-xs font-semibold text-slate-700 dark:border-white/10 dark:text-slate-200">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
               {selectedProject.securityHighlights && (
                 <div className="mt-6 border-t border-slate-200 pt-6 dark:border-white/10">
                   <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-emerald-700 dark:text-emerald-300">
