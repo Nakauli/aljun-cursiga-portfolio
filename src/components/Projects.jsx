@@ -13,6 +13,7 @@ import {
   Github,
   Globe2,
   Layers3,
+  Link,
   LockKeyhole,
   Search,
   ShieldCheck,
@@ -39,12 +40,14 @@ const recoverProjectImage = (event) => {
   if (event.currentTarget.src.endsWith(fallbackProjectImage)) return;
   event.currentTarget.src = fallbackProjectImage;
 };
+const getProjectSlug = (title) => title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("All");
   const [query, setQuery] = useState("");
   const [sortMode, setSortMode] = useState("featured");
   const [selectedProject, setSelectedProject] = useState(null);
+  const [copiedProject, setCopiedProject] = useState(false);
   const dialogRef = useRef(null);
   const closeButtonRef = useRef(null);
   const projectTriggerRef = useRef(null);
@@ -131,6 +134,13 @@ export default function Projects() {
     if (selectedProjectIndex < 0 || visibleProjects.length < 2) return;
     const nextIndex = (selectedProjectIndex + direction + visibleProjects.length) % visibleProjects.length;
     setSelectedProject(visibleProjects[nextIndex]);
+  };
+
+  const copySelectedProjectLink = async () => {
+    const url = `${window.location.origin}${window.location.pathname}#project-${getProjectSlug(selectedProject.title)}`;
+    await navigator.clipboard.writeText(url);
+    setCopiedProject(true);
+    window.setTimeout(() => setCopiedProject(false), 1800);
   };
 
   useEffect(() => {
@@ -564,6 +574,10 @@ export default function Projects() {
                   </button>
                 </div>
               )}
+              <button type="button" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-cyan-700 dark:text-cyan-300" onClick={copySelectedProjectLink}>
+                <Link size={16} aria-hidden="true" />
+                {copiedProject ? "Project link copied" : "Copy project link"}
+              </button>
             </motion.article>
           </motion.div>
         )}
