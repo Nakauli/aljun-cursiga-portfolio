@@ -31,6 +31,12 @@ const statusClasses = {
 };
 
 const statusPriority = { Live: 0, Active: 1, Prototype: 2, Team: 3, Academic: 4, Concept: 5 };
+const fallbackProjectImage = "/project-placeholders/portfolio.png";
+
+const recoverProjectImage = (event) => {
+  if (event.currentTarget.src.endsWith(fallbackProjectImage)) return;
+  event.currentTarget.src = fallbackProjectImage;
+};
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -229,6 +235,7 @@ export default function Projects() {
                   decoding="async"
                   width="1280"
                   height="800"
+                  onError={recoverProjectImage}
                   className="aspect-[16/10] w-full object-cover transition duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/75 to-transparent p-4">
@@ -416,6 +423,7 @@ export default function Projects() {
                 alt=""
                 width="1280"
                 height="800"
+                onError={recoverProjectImage}
                 className="mt-6 aspect-[16/8] w-full rounded-[8px] object-cover"
               />
               <p id="project-dialog-description" className="mt-6 text-base leading-8 text-slate-600 dark:text-slate-300">
