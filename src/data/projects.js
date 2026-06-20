@@ -12,7 +12,7 @@ export const projects = [
     ownership: "Original project",
     repositoryVisibility: "Public repository",
     repositoryUpdatedAt: "2026-06-19",
-    image: "/project-placeholders/database-monster.png",
+    image: "/project-screenshots/database-monster-dashboard.webp",
     goal: "Give classmates a secure, measurable way to prepare for database certification topics without using exam dumps.",
     highlights: [
       "Built individual progress dashboards with Supabase Auth",
