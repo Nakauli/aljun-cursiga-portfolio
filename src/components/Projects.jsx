@@ -116,6 +116,9 @@ export default function Projects() {
         (a, b) => new Date(b.repositoryUpdatedAt || 0).getTime() - new Date(a.repositoryUpdatedAt || 0).getTime(),
       );
     }
+    if (sortMode === "year") {
+      return [...matchingProjects].sort((a, b) => b.year - a.year || a.title.localeCompare(b.title));
+    }
     return matchingProjects;
   }, [activeFilter, query, sortMode]);
 
