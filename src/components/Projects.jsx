@@ -4,6 +4,8 @@ import {
   ArrowUpDown,
   CalendarClock,
   CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
   CircleDot,
   Code2,
   ExternalLink,
@@ -123,6 +125,13 @@ export default function Projects() {
     }
     return matchingProjects;
   }, [activeFilter, query, sortMode]);
+  const selectedProjectIndex = selectedProject ? visibleProjects.findIndex((project) => project.title === selectedProject.title) : -1;
+
+  const moveSelectedProject = (direction) => {
+    if (selectedProjectIndex < 0 || visibleProjects.length < 2) return;
+    const nextIndex = (selectedProjectIndex + direction + visibleProjects.length) % visibleProjects.length;
+    setSelectedProject(visibleProjects[nextIndex]);
+  };
 
   useEffect(() => {
     if (!selectedProject) return undefined;
@@ -538,6 +547,19 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
+                </div>
+              )}
+              {visibleProjects.length > 1 && (
+                <div className="mt-8 flex items-center justify-between border-t border-slate-200 pt-6 dark:border-white/10">
+                  <button type="button" className="icon-command" onClick={() => moveSelectedProject(-1)} aria-label="View previous project" title="Previous project">
+                    <ChevronLeft size={18} />
+                  </button>
+                  <p className="text-xs font-bold uppercase tracking-[0.15em] text-slate-500 dark:text-slate-400">
+                    Project {selectedProjectIndex + 1} of {visibleProjects.length}
+                  </p>
+                  <button type="button" className="icon-command" onClick={() => moveSelectedProject(1)} aria-label="View next project" title="Next project">
+                    <ChevronRight size={18} />
+                  </button>
                 </div>
               )}
             </motion.article>
