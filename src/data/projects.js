@@ -16,6 +16,7 @@ export const projects = [
     imageAlt: "Database Monster dashboard showing diagnostic exam actions and learning progress cards",
     mediaType: "Local app capture",
     goal: "Give classmates a secure, measurable way to prepare for database certification topics without using exam dumps.",
+    challenge: "Unify exam practice, progress tracking, SQL exercises, and local study tools without exposing learner data.",
     highlights: [
       "Built individual progress dashboards with Supabase Auth",
       "Protected learner data with Row Level Security policies",
@@ -43,6 +44,7 @@ export const projects = [
     imageAlt: "Payroll architecture activity comparing monolithic and microservices employee forms",
     mediaType: "Local app capture",
     goal: "Make architectural tradeoffs visible through two implementations of the same payroll domain.",
+    challenge: "Explain architecture tradeoffs through working software instead of diagrams alone.",
     highlights: [
       "Implemented employee CRUD and payroll calculations",
       "Separated employee data and payroll calculation services",
@@ -64,6 +66,7 @@ export const projects = [
     image: "/project-placeholders/buhaylink.png",
     mediaType: "Brand visual",
     goal: "Create a mobile-first path between local opportunity seekers and people posting practical work.",
+    challenge: "Keep job-seeker and employer workflows understandable within one mobile application.",
     highlights: [
       "Structured authentication, profiles, and role-aware job flows",
       "Built job search, saved listings, applications, and messaging screens",
@@ -86,6 +89,7 @@ export const projects = [
     image: "/project-placeholders/um-healthlink.png",
     mediaType: "Concept visual",
     goal: "Design a clear digital workflow for campus clinic services and student health records.",
+    challenge: "Map sensitive clinic activities into a coherent data model and service workflow.",
     highlights: ["Mapped clinic service workflows", "Designed a normalized health records database", "Planned referrals and appointment management"],
   },
   {
@@ -103,6 +107,7 @@ export const projects = [
     imageAlt: "SpamGuard message analysis interface with accuracy, model, and real-time prediction panels",
     mediaType: "Local app capture",
     goal: "Study how a trained text classifier can be exposed through a modular, approachable web interface.",
+    challenge: "Turn a text-classification model into an interface that non-technical users can understand.",
     highlights: [
       "Uses a trained Naive Bayes classifier and CountVectorizer",
       "Separates prediction, routes, API requests, and interface concerns",
@@ -124,6 +129,7 @@ export const projects = [
     image: "/project-placeholders/printing-press.png",
     mediaType: "Project visual",
     goal: "Support a real printing business with connected public ordering and internal operations workflows.",
+    challenge: "Connect customer ordering with inventory, staff, sales, and production responsibilities.",
     highlights: [
       "Contributed public pages and simplified controller structures",
       "Worked within a shared MVC-style PHP architecture",
@@ -146,6 +152,7 @@ export const projects = [
     image: "/project-placeholders/church-website.png",
     mediaType: "Concept visual",
     goal: "Create a welcoming digital home for ministries, announcements, and community media.",
+    challenge: "Organize several community audiences and content types without making navigation feel crowded.",
     highlights: ["Structured ministry information", "Prioritized announcements and media", "Built an accessible responsive layout"],
   },
   {
@@ -163,6 +170,7 @@ export const projects = [
     imageAlt: "COPS International portal hero with organization seal, mandate, and registration actions",
     mediaType: "Local app capture",
     goal: "Organize public information and demonstrate future membership workflows without presenting mock registration as production-ready.",
+    challenge: "Present public information and prototype member workflows while keeping demo boundaries explicit.",
     highlights: [
       "Curated a categorized, lazy-loaded field media archive",
       "Added a keyboard-accessible lightbox and reduced-motion support",
@@ -184,6 +192,7 @@ export const projects = [
     image: "/project-placeholders/portfolio.png",
     mediaType: "Live site visual",
     goal: "Present my developer and layout-design experience through a memorable, fast portfolio.",
+    challenge: "Show varied project evidence clearly while keeping the site fast, accessible, and honest.",
     highlights: ["Built reusable React sections", "Added responsive themes and motion", "Deployed a production build on Vercel"],
     securityHighlights: ["Content Security Policy", "CodeQL scanning", "Automated dependency audit"],
     liveUrl: "https://aljun-cursiga-portfolio.vercel.app",
