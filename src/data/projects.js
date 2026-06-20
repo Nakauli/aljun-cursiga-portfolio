@@ -13,6 +13,7 @@ export const projects = [
     repositoryVisibility: "Public repository",
     repositoryUpdatedAt: "2026-06-19",
     image: "/project-screenshots/database-monster-dashboard.webp",
+    mediaType: "Local app capture",
     goal: "Give classmates a secure, measurable way to prepare for database certification topics without using exam dumps.",
     highlights: [
       "Built individual progress dashboards with Supabase Auth",
@@ -38,6 +39,7 @@ export const projects = [
     repositoryVisibility: "Public repository",
     repositoryUpdatedAt: "2026-02-18",
     image: "/project-screenshots/payroll-architecture.webp",
+    mediaType: "Local app capture",
     goal: "Make architectural tradeoffs visible through two implementations of the same payroll domain.",
     highlights: [
       "Implemented employee CRUD and payroll calculations",
@@ -58,6 +60,7 @@ export const projects = [
     repositoryVisibility: "Public repository",
     repositoryUpdatedAt: "2026-01-09",
     image: "/project-placeholders/buhaylink.png",
+    mediaType: "Brand visual",
     goal: "Create a mobile-first path between local opportunity seekers and people posting practical work.",
     highlights: [
       "Structured authentication, profiles, and role-aware job flows",
@@ -79,6 +82,7 @@ export const projects = [
     repositoryVisibility: "Portfolio only",
     repositoryUpdatedAt: null,
     image: "/project-placeholders/um-healthlink.png",
+    mediaType: "Concept visual",
     goal: "Design a clear digital workflow for campus clinic services and student health records.",
     highlights: ["Mapped clinic service workflows", "Designed a normalized health records database", "Planned referrals and appointment management"],
   },
@@ -94,6 +98,7 @@ export const projects = [
     repositoryVisibility: "Public fork",
     repositoryUpdatedAt: "2026-06-17",
     image: "/project-screenshots/spamguard.webp",
+    mediaType: "Local app capture",
     goal: "Study how a trained text classifier can be exposed through a modular, approachable web interface.",
     highlights: [
       "Uses a trained Naive Bayes classifier and CountVectorizer",
@@ -114,6 +119,7 @@ export const projects = [
     repositoryVisibility: "Public fork",
     repositoryUpdatedAt: "2026-06-17",
     image: "/project-placeholders/printing-press.png",
+    mediaType: "Project visual",
     goal: "Support a real printing business with connected public ordering and internal operations workflows.",
     highlights: [
       "Contributed public pages and simplified controller structures",
@@ -135,6 +141,7 @@ export const projects = [
     repositoryVisibility: "Private repository",
     repositoryUpdatedAt: "2025-12-11",
     image: "/project-placeholders/church-website.png",
+    mediaType: "Concept visual",
     goal: "Create a welcoming digital home for ministries, announcements, and community media.",
     highlights: ["Structured ministry information", "Prioritized announcements and media", "Built an accessible responsive layout"],
   },
@@ -150,6 +157,7 @@ export const projects = [
     repositoryVisibility: "Private repository",
     repositoryUpdatedAt: "2026-06-19",
     image: "/project-screenshots/cops-portal.webp",
+    mediaType: "Local app capture",
     goal: "Organize public information and demonstrate future membership workflows without presenting mock registration as production-ready.",
     highlights: [
       "Curated a categorized, lazy-loaded field media archive",
@@ -170,6 +178,7 @@ export const projects = [
     repositoryVisibility: "Public repository",
     repositoryUpdatedAt: "2026-06-19",
     image: "/project-placeholders/portfolio.png",
+    mediaType: "Live site visual",
     goal: "Present my developer and layout-design experience through a memorable, fast portfolio.",
     highlights: ["Built reusable React sections", "Added responsive themes and motion", "Deployed a production build on Vercel"],
     securityHighlights: ["Content Security Policy", "CodeQL scanning", "Automated dependency audit"],
