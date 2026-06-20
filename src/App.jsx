@@ -6,6 +6,7 @@ import Hero from "./components/Hero.jsx";
 import About from "./components/About.jsx";
 import Skills from "./components/Skills.jsx";
 import Projects from "./components/Projects.jsx";
+import EngineeringProof from "./components/EngineeringProof.jsx";
 import Experience from "./components/Experience.jsx";
 import Learning from "./components/Learning.jsx";
 import Process from "./components/Process.jsx";
@@ -81,6 +82,7 @@ export default function App() {
             <IndustryStack />
           </Suspense>
           <Projects />
+          <EngineeringProof />
           <Experience />
           <Learning />
           <Process />
