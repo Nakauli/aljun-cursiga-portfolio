@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   verify:
-    name: Audit and build
+    name: Validate, audit, and build
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -30,5 +30,11 @@ jobs:
       - name: Install locked dependencies
         run: npm ci
 
-      - name: Run security and build checks
-        run: npm run check
+      - name: Validate portfolio data
+        run: npm run validate:projects
+
+      - name: Audit production dependencies
+        run: npm run security:audit
+
+      - name: Build production assets
+        run: npm run build
