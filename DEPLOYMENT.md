@@ -13,11 +13,13 @@ This is a Vite React project deployed with:
 - Output folder: `dist`
 - Hosting: Vercel free hosting
 
-## Latest Production Update
+## Release Prepared June 20, 2026
 
-- Date: June 19, 2026
-- Update: Added GitHub-backed projects, repository attribution, security headers, CodeQL, Dependabot, and automated quality checks.
-- Verification: `npm install`, `npm audit`, `npm run check`, responsive browser testing, and live-header inspection
+- Added four authentic running-app project captures.
+- Expanded project entries into searchable case studies with ownership and evidence disclosures.
+- Added project-data validation to local and GitHub Actions quality gates.
+- Added engineering proof, sharing, direct links, keyboard navigation, and improved filtering.
+- Verification command: `npm run check`
 
 ## Commands Used
 
