@@ -458,6 +458,10 @@ export default function Projects() {
                   <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">Architecture</p>
                   <p className="mt-2 text-sm leading-7 text-slate-700 dark:text-slate-200">{selectedProject.architecture}</p>
                 </div>
+                <div className="rounded-[8px] border border-slate-200 p-5 dark:border-white/10">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">Validation</p>
+                  <p className="mt-2 text-sm leading-7 text-slate-700 dark:text-slate-200">{selectedProject.validation}</p>
+                </div>
               </div>
               {selectedProject.securityHighlights && (
                 <div className="mt-6 border-t border-slate-200 pt-6 dark:border-white/10">
