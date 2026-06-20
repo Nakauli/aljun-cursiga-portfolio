@@ -441,6 +441,10 @@ export default function Projects() {
                 <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">My contribution</p>
                 <p className="mt-2 leading-7 text-slate-700 dark:text-slate-200">{selectedProject.contribution}</p>
               </div>
+              <div className="mt-4 rounded-[8px] border border-emerald-400/25 bg-emerald-400/10 p-5">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-emerald-700 dark:text-emerald-300">Outcome</p>
+                <p className="mt-2 leading-7 text-slate-800 dark:text-slate-100">{selectedProject.outcome}</p>
+              </div>
               <div className="mt-6 grid gap-3 sm:grid-cols-3">
                 {selectedProject.highlights.map((highlight) => (
                   <div key={highlight} className="flex gap-2 rounded-[8px] border border-slate-200 p-4 text-sm leading-6 text-slate-700 dark:border-white/10 dark:text-slate-200">
