@@ -230,6 +230,7 @@ export default function Projects() {
                 <option value="name">Name A-Z</option>
                 <option value="status">Most complete</option>
                 <option value="recent">Recently updated</option>
+                <option value="year">Newest project year</option>
               </select>
             </label>
           </div>
