@@ -303,6 +303,7 @@ export default function Projects() {
             <motion.article
               layout
               key={project.title}
+              id={`project-${getProjectSlug(project.title)}`}
               className="group overflow-hidden rounded-[8px] border border-slate-200/80 bg-white/80 shadow-sm backdrop-blur transition hover:-translate-y-1 hover:border-cyan-400/60 hover:shadow-glow dark:border-white/10 dark:bg-white/[0.065]"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
