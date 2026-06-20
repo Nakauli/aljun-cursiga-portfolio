@@ -16,6 +16,7 @@ import {
   Link,
   LockKeyhole,
   Search,
+  Share2,
   ShieldCheck,
   UserCheck,
   Users,
@@ -141,6 +142,16 @@ export default function Projects() {
     await navigator.clipboard.writeText(url);
     setCopiedProject(true);
     window.setTimeout(() => setCopiedProject(false), 1800);
+  };
+
+  const shareSelectedProject = async () => {
+    const url = `${window.location.origin}${window.location.pathname}#project-${getProjectSlug(selectedProject.title)}`;
+    if (navigator.share) {
+      await navigator.share({ title: selectedProject.title, text: selectedProject.description, url });
+      return;
+    }
+    await navigator.clipboard.writeText(url);
+    setCopiedProject(true);
   };
 
   useEffect(() => {
@@ -588,10 +599,16 @@ export default function Projects() {
                   </button>
                 </div>
               )}
-              <button type="button" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-cyan-700 dark:text-cyan-300" onClick={copySelectedProjectLink}>
-                <Link size={16} aria-hidden="true" />
-                {copiedProject ? "Project link copied" : "Copy project link"}
-              </button>
+              <div className="mt-5 flex flex-wrap gap-5">
+                <button type="button" className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-700 dark:text-cyan-300" onClick={copySelectedProjectLink}>
+                  <Link size={16} aria-hidden="true" />
+                  {copiedProject ? "Project link copied" : "Copy project link"}
+                </button>
+                <button type="button" className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-700 dark:text-cyan-300" onClick={shareSelectedProject}>
+                  <Share2 size={16} aria-hidden="true" />
+                  Share project
+                </button>
+              </div>
             </motion.article>
           </motion.div>
         )}
