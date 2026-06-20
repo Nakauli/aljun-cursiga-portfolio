@@ -149,7 +149,7 @@ export const projects = [
     ownership: "Original project",
     repositoryVisibility: "Private repository",
     repositoryUpdatedAt: "2026-06-19",
-    image: "/project-placeholders/cops-international.png",
+    image: "/project-screenshots/cops-portal.webp",
     goal: "Organize public information and demonstrate future membership workflows without presenting mock registration as production-ready.",
     highlights: [
       "Curated a categorized, lazy-loaded field media archive",
