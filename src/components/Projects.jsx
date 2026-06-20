@@ -405,7 +405,7 @@ export default function Projects() {
                     {selectedProject.title}
                   </h3>
                   <p className="mt-3 text-sm font-semibold text-slate-500 dark:text-slate-400">
-                    {selectedProject.ownership} · {selectedProject.repositoryVisibility}
+                    {selectedProject.year} - {selectedProject.ownership} - {selectedProject.repositoryVisibility}
                   </p>
                 </div>
                 <button
