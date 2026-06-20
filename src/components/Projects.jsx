@@ -208,6 +208,7 @@ export default function Projects() {
                   type="button"
                   key={filter}
                   onClick={() => setActiveFilter(filter)}
+                  aria-pressed={activeFilter === filter}
                   className={`rounded-[8px] border px-4 py-2 text-sm font-semibold transition ${
                     activeFilter === filter
                       ? "border-cyan-500 bg-cyan-500 text-white shadow-glow"
