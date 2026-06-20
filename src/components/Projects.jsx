@@ -238,6 +238,9 @@ export default function Projects() {
                   <CircleDot size={12} />
                   {project.status}
                 </span>
+                <span className="absolute left-3 top-3 rounded-[8px] border border-white/20 bg-slate-950/80 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-white backdrop-blur">
+                  {project.mediaType}
+                </span>
               </div>
               <div className="p-5">
                 <h3 className="font-display text-xl font-semibold text-slate-950 dark:text-white">{project.title}</h3>
