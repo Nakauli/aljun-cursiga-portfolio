@@ -170,6 +170,19 @@ export default function Projects() {
     return () => window.removeEventListener("keydown", focusSearch);
   }, []);
 
+  useEffect(() => {
+    const openHashedProject = () => {
+      if (!window.location.hash.startsWith("#project-")) return;
+      const matchingProject = projects.find(
+        (project) => `#project-${getProjectSlug(project.title)}` === window.location.hash,
+      );
+      if (matchingProject) setSelectedProject(matchingProject);
+    };
+    openHashedProject();
+    window.addEventListener("hashchange", openHashedProject);
+    return () => window.removeEventListener("hashchange", openHashedProject);
+  }, []);
+
   const keepDialogFocusContained = (event) => {
     if (event.key !== "Tab" || !dialogRef.current) return;
     const focusableElements = dialogRef.current.querySelectorAll(
