@@ -37,3 +37,13 @@ Out of scope:
 - Automated traffic that disrupts service
 - Vulnerabilities in linked repositories unless reported to that repository's owner
 
+## Portfolio Media Safety
+
+Project screenshots must use local demonstration data only. Captures are reviewed before publication to exclude:
+
+- Passwords, access tokens, API keys, and environment values
+- Private customer, student, employee, or member records
+- Personal addresses, private messages, and non-public contact details
+- Internal administration pages that reveal sensitive operational information
+
+Concept visuals are labeled separately from captures of running applications so portfolio evidence is not overstated.
