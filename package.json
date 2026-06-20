@@ -7,8 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "validate:projects": "node scripts/validate-projects.mjs",
     "security:audit": "npm audit --audit-level=high",
-    "check": "npm run security:audit && npm run build"
+    "check": "npm run validate:projects && npm run security:audit && npm run build"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^5.1.1",
