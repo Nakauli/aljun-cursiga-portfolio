@@ -46,6 +46,7 @@ export default function Projects() {
   const dialogRef = useRef(null);
   const closeButtonRef = useRef(null);
   const projectTriggerRef = useRef(null);
+  const searchInputRef = useRef(null);
   const repositorySummary = useMemo(
     () => [
       { label: "Projects represented", value: projects.length, icon: FolderGit2 },
@@ -136,6 +137,17 @@ export default function Projects() {
     };
   }, [selectedProject]);
 
+  useEffect(() => {
+    const focusSearch = (event) => {
+      if (event.key !== "/" || event.ctrlKey || event.metaKey || event.altKey) return;
+      if (["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement?.tagName)) return;
+      event.preventDefault();
+      searchInputRef.current?.focus();
+    };
+    window.addEventListener("keydown", focusSearch);
+    return () => window.removeEventListener("keydown", focusSearch);
+  }, []);
+
   const keepDialogFocusContained = (event) => {
     if (event.key !== "Tab" || !dialogRef.current) return;
     const focusableElements = dialogRef.current.querySelectorAll(
@@ -180,6 +192,7 @@ export default function Projects() {
               <span className="sr-only">Search projects</span>
               <Search className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
               <input
+                ref={searchInputRef}
                 type="search"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
