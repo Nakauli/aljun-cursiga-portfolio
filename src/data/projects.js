@@ -37,7 +37,7 @@ export const projects = [
     ownership: "Original academic work",
     repositoryVisibility: "Public repository",
     repositoryUpdatedAt: "2026-02-18",
-    image: "/project-placeholders/payroll-architecture.png",
+    image: "/project-screenshots/payroll-architecture.webp",
     goal: "Make architectural tradeoffs visible through two implementations of the same payroll domain.",
     highlights: [
       "Implemented employee CRUD and payroll calculations",
