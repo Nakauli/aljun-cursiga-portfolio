@@ -93,7 +93,7 @@ export const projects = [
     ownership: "Academic team repository",
     repositoryVisibility: "Public fork",
     repositoryUpdatedAt: "2026-06-17",
-    image: "/project-placeholders/spamguard.png",
+    image: "/project-screenshots/spamguard.webp",
     goal: "Study how a trained text classifier can be exposed through a modular, approachable web interface.",
     highlights: [
       "Uses a trained Naive Bayes classifier and CountVectorizer",
