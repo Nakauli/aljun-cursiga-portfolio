@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowUpDown,
@@ -461,8 +462,9 @@ export default function Projects() {
         )}
       </div>
 
-      <AnimatePresence>
-        {selectedProject && (
+      {createPortal(
+        <AnimatePresence>
+          {selectedProject && (
           <motion.div
             className="fixed inset-0 z-[80] grid place-items-center bg-slate-950/70 p-4 backdrop-blur-md"
             initial={{ opacity: 0 }}
@@ -611,8 +613,10 @@ export default function Projects() {
               </div>
             </motion.article>
           </motion.div>
-        )}
-      </AnimatePresence>
+          )}
+        </AnimatePresence>,
+        document.body,
+      )}
     </section>
   );
 }
