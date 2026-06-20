@@ -83,7 +83,22 @@ export default function Projects() {
 
     const matchingProjects = projects.filter((project) => {
       const matchesFilter = activeFilter === "All" || project.filters.includes(activeFilter);
-      const searchableText = [project.title, project.type, project.description, ...project.tech].join(" ").toLowerCase();
+      const searchableText = [
+        project.title,
+        project.type,
+        project.description,
+        project.goal,
+        project.challenge,
+        project.contribution,
+        project.outcome,
+        project.architecture,
+        project.validation,
+        ...project.tech,
+        ...project.highlights,
+        ...project.evidence,
+      ]
+        .join(" ")
+        .toLowerCase();
       const matchesQuery = !normalizedQuery || searchableText.includes(normalizedQuery);
       return matchesFilter && matchesQuery;
     });
