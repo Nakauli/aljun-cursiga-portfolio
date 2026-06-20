@@ -82,7 +82,9 @@ export default function Projects() {
     const normalizedQuery = query.trim().toLowerCase();
 
     const matchingProjects = projects.filter((project) => {
-      const matchesFilter = activeFilter === "All" || project.filters.includes(activeFilter);
+      const matchesFilter =
+        activeFilter === "All" ||
+        (activeFilter === "Featured" ? project.featured : project.filters.includes(activeFilter));
       const searchableText = [
         project.title,
         project.type,
