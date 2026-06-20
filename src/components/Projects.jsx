@@ -73,6 +73,7 @@ export default function Projects() {
     ],
     [],
   );
+  const hasActiveProjectControls = activeFilter !== "All" || query.trim() || sortMode !== "featured";
 
   const closeSelectedProject = () => {
     setSelectedProject(null);
@@ -248,6 +249,19 @@ export default function Projects() {
               </select>
             </label>
           </div>
+          {hasActiveProjectControls && (
+            <button
+              type="button"
+              onClick={() => {
+                setQuery("");
+                setActiveFilter("All");
+                setSortMode("featured");
+              }}
+              className="w-fit text-sm font-semibold text-cyan-700 hover:underline dark:text-cyan-300"
+            >
+              Clear project controls
+            </button>
+          )}
         </div>
 
         <motion.div layout className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
