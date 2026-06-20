@@ -1,4 +1,4 @@
-export const projectFilters = ["All", "Web", "Mobile", "System", "AI / ML", "Architecture", "Security", "Design", "Full Stack"];
+export const projectFilters = ["All", "Featured", "Web", "Mobile", "System", "AI / ML", "Architecture", "Security", "Design", "Full Stack"];
 
 export const projects = [
   {
