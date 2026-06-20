@@ -65,7 +65,11 @@ This audits dependencies at high severity and creates a production build.
 - Edit project cards in `src/data/projects.js`.
 - Edit experience entries in `src/data/experience.js`.
 - Edit services in `src/data/services.js`.
-- Replace project preview images in `public/project-placeholders`.
+- Store authentic running-app captures in `public/project-screenshots`.
+- Store logos, concepts, and other non-running visuals in `public/project-placeholders`.
+- Label each image accurately with `mediaType`, `imageAlt`, and `evidence` in `src/data/projects.js`.
+
+Project captures use a consistent `1280 x 800` frame and WebP format. Avoid including secrets, private records, real credentials, or personally identifiable test data in screenshots.
 
 ## CV Files
 
