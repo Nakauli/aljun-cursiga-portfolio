@@ -20,6 +20,7 @@ export const projects = [
     contribution: "Designed the product structure, implemented the learning interfaces, and connected authentication, data, and tests.",
     outcome: "A working study ecosystem with a 360-question bank, learner dashboards, SQL labs, and automated checks.",
     architecture: "Next.js web app, Supabase data layer, Python study tools, and a local Flask dashboard.",
+    validation: "TypeScript checks, Python tests, database policy review, and local interface verification.",
     highlights: [
       "Built individual progress dashboards with Supabase Auth",
       "Protected learner data with Row Level Security policies",
@@ -51,6 +52,7 @@ export const projects = [
     contribution: "Built both application variants and documented how their responsibilities differ.",
     outcome: "A hands-on academic comparison that makes coupling and service separation visible.",
     architecture: "Two React implementations: a single application flow and a simulated service-oriented flow.",
+    validation: "Local build verification and side-by-side workflow review.",
     highlights: [
       "Implemented employee CRUD and payroll calculations",
       "Separated employee data and payroll calculation services",
@@ -76,6 +78,7 @@ export const projects = [
     contribution: "Designed the Flutter feature structure, screens, service boundaries, and reusable validation.",
     outcome: "A broad mobile prototype covering discovery, applications, saved jobs, profiles, and messaging.",
     architecture: "Feature-organized Flutter client using providers, repositories, services, and Firebase integration.",
+    validation: "Static analysis and targeted screen-level review; the prototype still needs integration hardening.",
     highlights: [
       "Structured authentication, profiles, and role-aware job flows",
       "Built job search, saved listings, applications, and messaging screens",
@@ -102,6 +105,7 @@ export const projects = [
     contribution: "Produced the system analysis, workflow proposal, and normalized database design.",
     outcome: "A documented proposal ready for stakeholder review and future implementation planning.",
     architecture: "Normalized relational model supporting clinic records, dispensing, referrals, and appointments.",
+    validation: "Entity-relationship review and workflow consistency checks.",
     highlights: ["Mapped clinic service workflows", "Designed a normalized health records database", "Planned referrals and appointment management"],
   },
   {
@@ -123,6 +127,7 @@ export const projects = [
     contribution: "Contributed within a team repository and preserved shared authorship in this portfolio.",
     outcome: "A runnable educational classifier with separated model, API, routing, and interface concerns.",
     architecture: "Flask application with modular routes, API handling, prediction service, and trained model assets.",
+    validation: "Local application launch and interface review; model claims remain attributed to the team project.",
     highlights: [
       "Uses a trained Naive Bayes classifier and CountVectorizer",
       "Separates prediction, routes, API requests, and interface concerns",
@@ -148,6 +153,7 @@ export const projects = [
     contribution: "Contributed public pages and controller simplification within the team architecture.",
     outcome: "A connected team system covering both customer-facing and internal operational workflows.",
     architecture: "MVC-style PHP application with public pages, internal modules, SQL persistence, and middleware.",
+    validation: "Repository review of authorization boundaries, CSRF middleware, and shared application structure.",
     highlights: [
       "Contributed public pages and simplified controller structures",
       "Worked within a shared MVC-style PHP architecture",
@@ -174,6 +180,7 @@ export const projects = [
     contribution: "Created the information structure and responsive interface concept.",
     outcome: "A reusable concept for presenting ministries, updates, announcements, and media.",
     architecture: "Responsive static web experience organized around reusable page sections and content groups.",
+    validation: "Responsive layout and content-structure review.",
     highlights: ["Structured ministry information", "Prioritized announcements and media", "Built an accessible responsive layout"],
   },
   {
@@ -195,6 +202,7 @@ export const projects = [
     contribution: "Built the TypeScript interface, media archive, accessibility behavior, and demo safeguards.",
     outcome: "A private working portal concept with public content and clearly labeled prototype workflows.",
     architecture: "React and TypeScript client with a mock API boundary for prototype data and workflows.",
+    validation: "Production build, keyboard navigation, reduced-motion behavior, and media loading checks.",
     highlights: [
       "Curated a categorized, lazy-loaded field media archive",
       "Added a keyboard-accessible lightbox and reduced-motion support",
@@ -220,6 +228,7 @@ export const projects = [
     contribution: "Designed, implemented, tested, secured, documented, and deployed the complete website.",
     outcome: "A live portfolio with automated quality checks, responsive presentation, and verifiable project links.",
     architecture: "Vite React single-page application deployed through Vercel with GitHub-based automation.",
+    validation: "Automated dependency audit, production build, CodeQL scanning, and browser verification.",
     highlights: ["Built reusable React sections", "Added responsive themes and motion", "Deployed a production build on Vercel"],
     securityHighlights: ["Content Security Policy", "CodeQL scanning", "Automated dependency audit"],
     liveUrl: "https://aljun-cursiga-portfolio.vercel.app",
