@@ -137,6 +137,8 @@ export default function Projects() {
     if (!selectedProject) return undefined;
     const onKeyDown = (event) => {
       if (event.key === "Escape") closeSelectedProject();
+      if (event.key === "ArrowLeft") moveSelectedProject(-1);
+      if (event.key === "ArrowRight") moveSelectedProject(1);
     };
     document.body.style.overflow = "hidden";
     window.requestAnimationFrame(() => closeButtonRef.current?.focus());
@@ -145,7 +147,7 @@ export default function Projects() {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKeyDown);
     };
-  }, [selectedProject]);
+  }, [selectedProject, selectedProjectIndex, visibleProjects]);
 
   useEffect(() => {
     const focusSearch = (event) => {
