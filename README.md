@@ -13,6 +13,10 @@ A responsive personal portfolio for Aljun C. Cursiga, a Computer Science student
 - Industry stack filters with evidence-based proficiency labels
 - Programming language learning tracks with concrete proof projects
 - GitHub-backed project gallery with ownership, visibility, and repository freshness
+- Searchable case studies covering challenge, contribution, outcome, architecture, validation, and evidence
+- Direct project links, share actions, keyboard navigation, and featured-project filtering
+- Authentic running-app screenshots separated from brand and concept visuals
+- Engineering proof summary for repository, quality, security, and delivery practices
 - Project security evidence and responsible team-work attribution
 - Production security headers and a public vulnerability reporting policy
 - Dependabot, CodeQL, dependency auditing, and automated build verification
@@ -55,6 +59,12 @@ npm run check
 ```
 
 This audits dependencies at high severity and creates a production build.
+
+Validate project records and media references independently with:
+
+```bash
+npm run validate:projects
+```
 
 ## Editing Content
 
