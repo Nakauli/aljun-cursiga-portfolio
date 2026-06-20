@@ -227,6 +227,8 @@ export default function Projects() {
                   alt={project.imageAlt || `${project.title} project preview`}
                   loading="lazy"
                   decoding="async"
+                  width="1280"
+                  height="800"
                   className="aspect-[16/10] w-full object-cover transition duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/75 to-transparent p-4">
@@ -409,7 +411,13 @@ export default function Projects() {
                   <X size={18} />
                 </button>
               </div>
-              <img src={selectedProject.image} alt="" className="mt-6 aspect-[16/8] w-full rounded-[8px] object-cover" />
+              <img
+                src={selectedProject.image}
+                alt=""
+                width="1280"
+                height="800"
+                className="mt-6 aspect-[16/8] w-full rounded-[8px] object-cover"
+              />
               <p id="project-dialog-description" className="mt-6 text-base leading-8 text-slate-600 dark:text-slate-300">
                 {selectedProject.description}
               </p>
