@@ -19,6 +19,7 @@ export const projects = [
     challenge: "Unify exam practice, progress tracking, SQL exercises, and local study tools without exposing learner data.",
     contribution: "Designed the product structure, implemented the learning interfaces, and connected authentication, data, and tests.",
     outcome: "A working study ecosystem with a 360-question bank, learner dashboards, SQL labs, and automated checks.",
+    architecture: "Next.js web app, Supabase data layer, Python study tools, and a local Flask dashboard.",
     highlights: [
       "Built individual progress dashboards with Supabase Auth",
       "Protected learner data with Row Level Security policies",
@@ -49,6 +50,7 @@ export const projects = [
     challenge: "Explain architecture tradeoffs through working software instead of diagrams alone.",
     contribution: "Built both application variants and documented how their responsibilities differ.",
     outcome: "A hands-on academic comparison that makes coupling and service separation visible.",
+    architecture: "Two React implementations: a single application flow and a simulated service-oriented flow.",
     highlights: [
       "Implemented employee CRUD and payroll calculations",
       "Separated employee data and payroll calculation services",
@@ -73,6 +75,7 @@ export const projects = [
     challenge: "Keep job-seeker and employer workflows understandable within one mobile application.",
     contribution: "Designed the Flutter feature structure, screens, service boundaries, and reusable validation.",
     outcome: "A broad mobile prototype covering discovery, applications, saved jobs, profiles, and messaging.",
+    architecture: "Feature-organized Flutter client using providers, repositories, services, and Firebase integration.",
     highlights: [
       "Structured authentication, profiles, and role-aware job flows",
       "Built job search, saved listings, applications, and messaging screens",
@@ -98,6 +101,7 @@ export const projects = [
     challenge: "Map sensitive clinic activities into a coherent data model and service workflow.",
     contribution: "Produced the system analysis, workflow proposal, and normalized database design.",
     outcome: "A documented proposal ready for stakeholder review and future implementation planning.",
+    architecture: "Normalized relational model supporting clinic records, dispensing, referrals, and appointments.",
     highlights: ["Mapped clinic service workflows", "Designed a normalized health records database", "Planned referrals and appointment management"],
   },
   {
@@ -118,6 +122,7 @@ export const projects = [
     challenge: "Turn a text-classification model into an interface that non-technical users can understand.",
     contribution: "Contributed within a team repository and preserved shared authorship in this portfolio.",
     outcome: "A runnable educational classifier with separated model, API, routing, and interface concerns.",
+    architecture: "Flask application with modular routes, API handling, prediction service, and trained model assets.",
     highlights: [
       "Uses a trained Naive Bayes classifier and CountVectorizer",
       "Separates prediction, routes, API requests, and interface concerns",
@@ -142,6 +147,7 @@ export const projects = [
     challenge: "Connect customer ordering with inventory, staff, sales, and production responsibilities.",
     contribution: "Contributed public pages and controller simplification within the team architecture.",
     outcome: "A connected team system covering both customer-facing and internal operational workflows.",
+    architecture: "MVC-style PHP application with public pages, internal modules, SQL persistence, and middleware.",
     highlights: [
       "Contributed public pages and simplified controller structures",
       "Worked within a shared MVC-style PHP architecture",
@@ -167,6 +173,7 @@ export const projects = [
     challenge: "Organize several community audiences and content types without making navigation feel crowded.",
     contribution: "Created the information structure and responsive interface concept.",
     outcome: "A reusable concept for presenting ministries, updates, announcements, and media.",
+    architecture: "Responsive static web experience organized around reusable page sections and content groups.",
     highlights: ["Structured ministry information", "Prioritized announcements and media", "Built an accessible responsive layout"],
   },
   {
@@ -187,6 +194,7 @@ export const projects = [
     challenge: "Present public information and prototype member workflows while keeping demo boundaries explicit.",
     contribution: "Built the TypeScript interface, media archive, accessibility behavior, and demo safeguards.",
     outcome: "A private working portal concept with public content and clearly labeled prototype workflows.",
+    architecture: "React and TypeScript client with a mock API boundary for prototype data and workflows.",
     highlights: [
       "Curated a categorized, lazy-loaded field media archive",
       "Added a keyboard-accessible lightbox and reduced-motion support",
@@ -211,6 +219,7 @@ export const projects = [
     challenge: "Show varied project evidence clearly while keeping the site fast, accessible, and honest.",
     contribution: "Designed, implemented, tested, secured, documented, and deployed the complete website.",
     outcome: "A live portfolio with automated quality checks, responsive presentation, and verifiable project links.",
+    architecture: "Vite React single-page application deployed through Vercel with GitHub-based automation.",
     highlights: ["Built reusable React sections", "Added responsive themes and motion", "Deployed a production build on Vercel"],
     securityHighlights: ["Content Security Policy", "CodeQL scanning", "Automated dependency audit"],
     liveUrl: "https://aljun-cursiga-portfolio.vercel.app",
