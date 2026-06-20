@@ -224,7 +224,7 @@ export default function Projects() {
               <div className="relative overflow-hidden">
                 <img
                   src={project.image}
-                  alt={`${project.title} project preview`}
+                  alt={project.imageAlt || `${project.title} project preview`}
                   loading="lazy"
                   decoding="async"
                   className="aspect-[16/10] w-full object-cover transition duration-500 group-hover:scale-105"

@@ -13,6 +13,7 @@ export const projects = [
     repositoryVisibility: "Public repository",
     repositoryUpdatedAt: "2026-06-19",
     image: "/project-screenshots/database-monster-dashboard.webp",
+    imageAlt: "Database Monster dashboard showing diagnostic exam actions and learning progress cards",
     mediaType: "Local app capture",
     goal: "Give classmates a secure, measurable way to prepare for database certification topics without using exam dumps.",
     highlights: [
@@ -39,6 +40,7 @@ export const projects = [
     repositoryVisibility: "Public repository",
     repositoryUpdatedAt: "2026-02-18",
     image: "/project-screenshots/payroll-architecture.webp",
+    imageAlt: "Payroll architecture activity comparing monolithic and microservices employee forms",
     mediaType: "Local app capture",
     goal: "Make architectural tradeoffs visible through two implementations of the same payroll domain.",
     highlights: [
@@ -98,6 +100,7 @@ export const projects = [
     repositoryVisibility: "Public fork",
     repositoryUpdatedAt: "2026-06-17",
     image: "/project-screenshots/spamguard.webp",
+    imageAlt: "SpamGuard message analysis interface with accuracy, model, and real-time prediction panels",
     mediaType: "Local app capture",
     goal: "Study how a trained text classifier can be exposed through a modular, approachable web interface.",
     highlights: [
@@ -157,6 +160,7 @@ export const projects = [
     repositoryVisibility: "Private repository",
     repositoryUpdatedAt: "2026-06-19",
     image: "/project-screenshots/cops-portal.webp",
+    imageAlt: "COPS International portal hero with organization seal, mandate, and registration actions",
     mediaType: "Local app capture",
     goal: "Organize public information and demonstrate future membership workflows without presenting mock registration as production-ready.",
     highlights: [
